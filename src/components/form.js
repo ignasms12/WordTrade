@@ -3,13 +3,30 @@ import './../stylesheets/style.css';
 import './../stylesheets/bootstrap.css';
 import './../fonts/fonts.css';
 import loginVideo from './../images/login.mp4';
-import './../js/loginLogic';
 
 export default class form extends Component {
     constructor(props) {
         super(props);
         //this.state = {user: '', psw: ''};
-      }
+    }
+    
+    componentDidMount(){
+        document.addEventListener("DOMContentLoaded", function(event) {
+            // Login / Registration logic
+            document.getElementById('signup').addEventListener("click", function(event){
+                event.preventDefault();
+                document.getElementById('psw-repeat-form').classList.remove('display-none');
+                document.getElementById('age-form').classList.remove('display-none');
+                document.getElementById('car-model-form').classList.remove('display-none');
+                document.getElementById('name-form').classList.remove('display-none');
+                document.getElementById('info-form').classList.remove('display-none');
+                document.getElementById('login').innerHTML = "Signup";
+                document.getElementById('account').classList.add('display-none');
+                //document.getElementsByClassName('logo').classList.add('logo-signup');
+                //document.getElementById('loginHome').classList.add('home-signup');
+            });
+        });
+    }
 
     handleSubmit = (e) => {
         //console.log('A name was submitted: ' + this.state.user + this.state.psw);
