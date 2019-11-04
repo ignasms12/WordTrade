@@ -4,28 +4,28 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './components/home';
 
 class App extends React.Component{
-  state = {
-    credentials: {
-        username: '',
-        password: ''
-      }
-  }
+  // state = {
+  //   credentials: {
+  //       username: '',
+  //       password: ''
+  //     }
+  // }
 
-  handleChangeUser = (e) => {
-    this.setState({
-        credentials: {
-          username: e.target.value
-        }
-    });
-  }
+  // handleChangeUser = (e) => {
+  //   this.setState({
+  //       credentials: {
+  //         username: e.target.value
+  //       }
+  //   });
+  // }
 
-  handleChangePsw = (e) => {
-      this.setState({
-        credentials: {
-          password: e.target.value 
-        }
-      });  
-  }
+  // handleChangePsw = (e) => {
+  //     this.setState({
+  //       credentials: {
+  //         password: e.target.value 
+  //       }
+  //     });  
+  // }
 
   render(){
      return(

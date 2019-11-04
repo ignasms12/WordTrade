@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
     // Login / Registration logic
+    //@TODO TRANSFER TO REACT  'note: not as important'
     document.getElementById('signup').addEventListener("click", function(event){
         event.preventDefault();
         document.getElementById('psw-repeat-form').classList.remove('display-none');
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById('name-form').classList.remove('display-none');
         document.getElementById('info-form').classList.remove('display-none');
         document.getElementById('login').innerHTML = "Signup";
+        document.getElementById('login').setAttribute('signup', 'true');
         document.getElementById('account').classList.add('display-none');
         //document.getElementsByClassName('logo').classList.add('logo-signup');
         //document.getElementById('loginHome').classList.add('home-signup');
