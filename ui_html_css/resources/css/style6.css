@@ -1,0 +1,140 @@
+body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    overflow: scroll;
+}
+
+header img{
+    z-index: 10;
+    width: 10%;
+    margin: 5px auto 5px 5px;
+}
+
+header h1{
+    display: inline;
+    margin: 5px auto 0 100px;
+    font-family: 'Andale Mono', cursive;
+}
+
+footer{
+    position: fixed;
+    background: #fff;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    border-top: solid #999 1px;
+}
+
+footer img{
+    display: inline-block;
+    width: 35px;
+    padding: 0 5px;
+    margin: 10px; 
+}
+
+footer img:hover{
+    background-color: rgb(158, 160, 160);
+}
+
+
+.about p {
+display: block;
+background-color: rgb(201, 193, 193);
+font-family: Georgia ;
+font-style: italic;
+font-size: 17px;
+width: 90%;
+height: 400px;
+margin: 10px auto 10px 20px;
+border: solid #999 0.5px;
+box-shadow: 2px 4px 6px 2px rgb(172, 168, 168);
+text-align: start;
+}
+
+.about h3{
+ margin: 0 auto 0 20px;
+ font-family: 'Andale Mono';
+}
+
+.add h3{
+    display: inline;
+    margin: 20px auto 0 260px;
+    font-size: 20px;
+    font-family: 'Andale Mono';
+    color: black;
+}
+
+.add .addto{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 10px auto 0 10px;
+}
+
+.add h4{
+    display: inline;
+    margin: 20px auto 0 260px;
+    font-size: 20px;
+    font-family: 'Andale Mono';
+    color: black;
+}
+
+.add .write{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 10px auto 0 10px;
+}
+
+
+.add .addto:hover{
+    background-color: rgb(158, 160, 160);
+}
+
+.add .write:hover{
+    background-color: rgb(158, 160, 160);
+}
+
+.photo h3 {
+    display: inline-block;
+    background-color: #fff;
+    font-family: 'Andale Mono';
+    font-size: 16px;
+    width: 45%;
+    height: 350px;
+    margin-right: auto;
+    margin-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 0;
+    border: solid #999 0.5px;
+    box-shadow: 2px 4px 6px 2px rgb(172, 168, 168);
+    text-align: start;
+    border-radius: 0 10px 10px 0;
+    color: black;
+
+    }
+
+    header img:hover{
+        background-color: rgb(158, 160, 160);
+    }
+
+
+  .photo img {
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 229px;
+    height: 349px;
+    border: solid #999 0.5px;
+    float: left;
+    margin: 40px 1px 0px 20px;
+    box-shadow: 1px 4px 6px 1px rgb(90, 84, 84);
+}
+
+
+
+a{
+    text-decoration: none;
+}

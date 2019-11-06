@@ -1,0 +1,147 @@
+body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(45deg, #2C3E50, #FD746C);
+}
+
+header h1{
+    margin: 0px auto 0px 220px;
+    color: black;
+}
+
+header .back{
+    display: inline-block;
+    z-index: 10;
+    width: 10%;
+    margin: 5px auto 5px 5px;
+}
+
+header .back:hover{
+    background-color: rgb(158, 160, 160);
+}
+header .top{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 5px auto 0 170px;
+}
+
+
+footer{
+    position: fixed;
+    background: #fff;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    border-top: solid #999 1px;
+}
+
+footer img{
+    display: inline-block;
+    width: 35px;
+    padding: 0 5px;
+    margin: 10px; 
+}
+
+footer img:hover{
+    background-color: rgb(158, 160, 160);
+}
+
+.chat{
+   background-color: rgb(214, 211, 211);
+}
+
+.conversation{
+    margin: 20px auto 20px 0;
+    width: 100%;
+    height: 73%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: white;
+    border-radius: 15px;
+}
+
+.conversation .friend {
+display: block;
+background-color: rgb(219, 217, 217);
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 16px;
+width: 70%;
+height: 60px;
+margin:0 auto 10px 55px;
+border: solid #999 0.5px;
+box-shadow: 2px 4px 6px 2px rgb(90, 84, 84);
+text-align: start;
+}
+
+.conversation .you {
+    display: block;
+    background-color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    width: 70%;
+    height: 60px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: 115px;
+    border: solid #999 0.5px;
+    box-shadow: 2px 4px 6px 2px rgb(90, 84, 84);
+    text-align: start;
+    }
+
+
+  .boxFriend {
+    background-image: url(../imgs/male.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+    width: 39px;
+    height: 39px;
+    border: solid #999 0.5px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 1px;
+    box-shadow: 1px 4px 6px 1px rgb(90, 84, 84);
+}
+
+.message{
+position: absolute;
+display: inline-block;
+top: 80%;
+left: 20px;
+}
+
+input{
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+}
+
+input[type="text"]
+{
+height: 50px;
+width: 280px;
+outline: none;
+border-radius: 15px;
+padding: 3px 25px;
+border: solid grey;
+padding-left: 40px;
+}
+
+input[type="image"]
+{
+ position: relative;
+ padding-left: 30px;
+ width: 40px;
+ height: 40px;
+ cursor: pointer;
+ border: none;
+}
+
+a{
+    text-decoration: none;
+}
