@@ -10,7 +10,7 @@ body {
 header {
   z-index: 10;
   width: 100%;
-  top: 10px;
+  top: 10%;
   overflow: hidden;
   display:flex;
 }
@@ -19,19 +19,19 @@ header {
 .wordTrade {
   position: relative;
   float: right;
-  margin: 0px 20px 0px 200px;
+  margin: 3% 20% 0% 50%;
   font-weight: 700;
   text-transform: uppercase;
   color: white;
   font-size: 24px;
-  margin-top: 15px;
   text-rendering: optimizeLegibility;
+  overflow: visible;
 }
 
 .wordTrade2 {
   position: relative;
   float: right;
-  margin: 0px 20px 20px 160px;
+  margin: 3% 20% 0% 40%;
   font-weight: 700;
   text-transform: uppercase;
   color: white;
@@ -95,10 +95,6 @@ footer img {
   width: 35px;
   padding: 0 5px;
   margin: 10px;
-}
-
-footer img:hover {
-  background-color: rgb(158, 160, 160);
 }
 
 .wishList {
@@ -239,7 +235,7 @@ vertical-align: middle;
 display: block;
 background-color: rgba(255, 255, 255, 0.2);
 width: 70%;
-height: 50px;
+min-height: 30px;
 margin:0 auto 10px 55px;
 font-weight: normal;
 padding: 5px;
@@ -249,7 +245,7 @@ padding: 5px;
     display: block;
     background-color: rgba(255, 255, 255, 0.4);
     width: 70%;
-    height: 50px;
+    min-height: 30px;
     margin: 20px auto 10px 90px;
     font-weight: normal;
     padding: 5px;
@@ -329,14 +325,14 @@ header .top{
 display: block;
 font-size: 17px;
 width: 65%;
-height: 200px;
+min-height: 120px;
 margin: 0px auto 10px 120px;
  padding-top: 20px;
   color: rgba(255, 255, 255, 0.8);
 }
 
 .about .list h1{
-  margin: 50px auto 0 0;
+  margin: 30px auto 0 0;
   font-size: 12px ;
   color: rgba(255, 255, 255, 0.6);
   font-family: "Proxima Nova", Georgia, sans-serif !important;
@@ -380,8 +376,8 @@ margin: 0px auto 10px 120px;
 .aboutBook p {
   display: inline-block;
   font-size: 17px;
-  height: 550px;
-  margin: 10px auto 30px 0px;
+  min-height: 100px;
+  margin: 10px auto 100px 0px;
   color: rgba(255, 255, 255, 0.8);
   }
   
@@ -474,10 +470,11 @@ margin: 0px auto 10px 120px;
     width: 300px;
    }
 
+
+
  .country, .name, .username{
-    font-family: "Proxima Nova", Georgia, sans-serif !important;
     margin: 10px 50px;
-    width: 90%;
+    width: 70%;
     border-radius: 15px;
     border: none;
     font: inherit;
@@ -522,7 +519,7 @@ margin: 0px auto 10px 120px;
   margin-left: 50px;
 }
 
-.enter, .confirm, .EnterOldpas, .EnterNewPas, .ConfirmPas{
+.enter input, .confirm input, .EnterOldpas input, .EnterNewPas input, .ConfirmPas input{
   font-family: "Proxima Nova", Georgia, sans-serif !important;
   margin: 10px 50px;
   width: 90%;
@@ -535,9 +532,107 @@ margin: 0px auto 10px 120px;
   text-indent: 20px;
  }
 
+ .enter input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
 
+ .confirm input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
 
+ .EnterOldpas input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
 
+ .EnterNewPas input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
+
+ .ConfirmPas input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
+
+.country::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+}
+.name::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+}
+.username::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.emailChanges, .passChanges{
+  margin-top: 30px;
+}
+
+@media screen and (max-width:340px){
+ footer{
+   height: 60px;
+ }
+ 
+  footer img{
+     margin: 10px 5px;
+  }
+
+  body{
+    height: 100%;
+  }
+
+}
+
+.contact button{
+  display: inline-block;
+   font-size: 14px;
+   margin-left: 50%;
+   margin-top: 20px;
+    width: 140px;
+    height: 30px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+    border: none;
+}
+
+.suggestion{
+  min-height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px 0;
+  border-radius: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+}
+
+.suggestion .boxFriend{
+  margin: 5px;
+}
+
+.suggestion p{
+  padding: 5px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+}
+
+.suggestion a{
+  font-style: italic;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.makeaDeal button{
+  font-size: 14px;
+   width: 140px;
+   height: 30px;
+   margin-bottom: 5px;
+   margin-left: 50%;
+     background: transparent;
+     border-radius: 15px;
+     color: rgba(255, 255, 255, 0.8);
+     text-align: center;
+    border-style: solid;
+    border-width: 1px;
+}
 
 
 
