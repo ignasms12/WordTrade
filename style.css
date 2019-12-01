@@ -1,0 +1,1020 @@
+body {
+  margin: 0 auto;
+  font-family: "Proxima Nova", Georgia, sans-serif !important;
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+  background: #31315c;
+}
+
+header {
+  z-index: 10;
+  width: 100%;
+  top: 10%;
+  overflow: hidden;
+  display:flex;
+}
+
+
+.wordTrade {
+  position: relative;
+  float: right;
+  margin: 3% 5% 0% auto;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  font-size: 24px;
+  text-rendering: optimizeLegibility;
+  overflow: visible;
+}
+
+.wordTrade2 {
+  position: relative;
+  float: right;
+  margin: 3% 5% 0% auto;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  font-size: 24px;
+  margin-top: 15px;
+  text-rendering: optimizeLegibility;
+}
+
+
+.spacer {
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+
+.addContainer {
+  position: relative;
+  right: 5px;
+  top: 32px;
+  float: right;
+  margin: 0 10% 0 15%;
+}
+
+.addContainer img {
+  height: 24px;
+  color: white;
+}
+
+.addItem {
+  margin: 0 10% 0 5%;
+  width: 87%;
+  border-radius: 15px;
+  border: none;
+  font: inherit;
+  background: rgba(0, 0, 0, 0.3);
+  height: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  text-indent: 20px;
+
+}
+
+.addItem::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  text-indent: 10px;
+}
+
+footer {
+  position: fixed;
+  background: #fff;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  border-top: solid #999 1px;
+}
+
+.foot{
+  display: inline;
+}
+
+.foot img {
+  display: inline-block;
+  width: 35px;
+  padding: 7px 5px;
+  margin: 10px;
+}
+
+.wishList {
+  width: 90%;
+  margin: 0 5%;
+}
+
+.listItem {
+  min-height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px 0;
+  border-radius: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+}
+
+.listItem p {
+  padding: 15px 15px 15px 30px;
+}
+
+.wishlistLabel {
+  position: relative;
+  top: -10px;
+  left: 0px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+  font-size: 10px;
+  margin-top: 15px;
+  text-rendering: optimizeLegibility;
+}
+
+.Search {
+  margin: 0 10% 0 5%;
+  width: 87%;
+  border-radius: 15px;
+  border: none;
+  font: inherit;
+  background: rgba(0, 0, 0, 0.3);
+  height: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  text-indent: 20px;
+}
+
+.Search::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  text-indent: 10px;
+}
+
+.conv{
+  width: 100%;
+  height: 45%;
+}
+
+.conv button{
+display: block;
+background: transparent;
+width: 50%;
+min-height: 50px;
+margin-top: 10px;
+color: rgba(255, 255, 255, 0.8);
+text-align: left;
+border: none;
+font-family: "Proxima Nova", Georgia, sans-serif !important;
+font-size: 15px;
+
+}
+
+
+
+.conv .boxMa{
+  background-image: url(../imgs/male.png);
+  background-size: 49px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 49px;
+  height: 49px;
+  float: left;
+  margin: 0px 5px auto 10px;
+  border-radius: 50px;
+}
+
+.conv .boxFe{
+  background-image: url(../imgs/female.png);
+  background-size: 49px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 49px;
+  height: 49px;
+  float: left;
+  margin: 0px 5px auto 10px;
+  border-radius: 50px;
+}
+
+.message{
+  position: relative;
+  display: inline-block;
+  font-size: 15px;
+  overflow: hidden;
+}
+
+.typeMessage{
+height: 40px;
+min-width: 270px;
+outline: none;
+border-radius: 15px;
+border: none;
+text-indent: 20px;
+}
+
+.send{
+position: relative;
+width: 60px;
+height: 60px;
+cursor: pointer;
+border: none;
+vertical-align: middle;
+}
+
+
+.conversation{
+  margin: 20px auto 20px 0;
+  width: 100%;
+  height: 73%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+.conversation .friend {
+display: block;
+background-color: rgba(255, 255, 255, 0.2);
+width: 70%;
+min-height: 30px;
+margin:0 auto 10px 55px;
+font-weight: normal;
+padding: 5px;
+}
+
+.conversation .you {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 70%;
+    min-height: 30px;
+    margin: 2% auto 2% 25%;
+    font-weight: normal;
+    padding: 5px;
+    }
+
+    .boxFriend {
+      background-image: url(../imgs/male.png);
+      background-size: 39px;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 39px;
+      height: 39px;
+      float: left;
+      border-radius: 50px;
+      margin-left: 10px;
+      margin-right: 1px;
+  }
+  
+  .boxFriend2 {
+    background-image: url(../imgs/female.png);
+    background-size: 39px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 39px;
+    height: 39px;
+    float: left;
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-right: 1px;
+}
+
+  .message{
+  position: absolute;
+  display: inline-block;
+  top: 77%;
+  left: 7%;
+  }
+  
+header .back{
+  margin: 10px auto auto 10px;
+    width: 30px;
+    height: 30px;
+}
+
+header .top{
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  margin: 20px auto 0 140px;
+  border: none;
+}
+
+
+
+.profilePhoto {
+  background-image: url(../imgs/male.png);
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  width: 99px;
+  height: 99px;
+  float: left;
+  margin: 10px 1px auto 0px;
+  border-radius: 50px;
+}
+
+.about{
+  margin: 10px auto 20px 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+.about p {
+display: block;
+font-size: 17px;
+width: 65%;
+min-height: 120px;
+margin: 5% 10% 5% 35%;
+ padding-top: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.about .list h1{
+  margin: 30px auto 0 0;
+  font-size: 12px ;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Proxima Nova", Georgia, sans-serif !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+.about .list h3 {
+  display: block;
+  background-color:  rgba(255, 255, 255, 0.1);
+  font-weight: normal;
+  font-size: 16px;
+  width: 95%;
+  height: 20px;
+  margin: 2% auto 1% 0;
+  border-radius: 0 10px 10px 0;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px 5px 10px 5px;
+  }
+
+.add{
+  display: inline-block;
+  margin: 2% 0% 2% 2%;
+
+}
+.add button{
+   font-size: 14px;
+    display: inline-block;
+    margin: 10px auto 0 10px;
+    width: calc(50% - 22px);
+    padding: 10px 6px;
+    height: 30px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+    border: none;
+}
+
+
+.aboutBook p {
+  display: inline-block;
+  font-size: 17px;
+  min-height: 100px;
+  margin: 10px auto 100px 0px;
+  color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .aboutBook h3{
+   margin: 30px auto 0 0;
+   text-transform: uppercase;
+   text-rendering: optimizeLegibility;
+   font-size: 12px ;
+   color: rgba(255, 255, 255, 0.6);
+   letter-spacing: 2px;
+  }
+
+
+  .photo{
+    margin-top: 10px;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .photo .book {
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 150px;
+    height: 250px;
+    border:none;
+    float: left;
+    border-radius: 0px;
+    margin: 10% auto 10% 28%;
+
+}
+
+
+.myprofile{
+  width: 80%;
+  border: none;
+  }
+
+  .nickname{
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    margin: 0 auto 0 40%;
+    text-align: center;
+  }
+
+  .profilePhoto2{
+    width: 100px;
+    height: 100px;
+    border-style: none;
+     margin: 5% auto 5% 50%;
+    margin-top: 10px;
+  }
+
+  .profile button{
+    font-size: 15px;
+    font-family: "Proxima Nova", Georgia, sans-serif !important;
+    min-height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 5% auto 5% 5%;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 300px;
+    }
+
+
+.mail button{
+  font-size: 15px;
+  font-family: "Proxima Nova", Georgia, sans-serif !important;
+  min-height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px auto 10px 10px;
+  border-radius: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+  width: 300px;
+  }
+
+  .password button{
+    font-size: 15px;
+    font-family: "Proxima Nova", Georgia, sans-serif !important;
+    min-height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px auto 10px 10px;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 300px;
+   }
+
+
+
+ .country, .name, .username{
+    margin: 5% 10%;
+    width: 70%;
+    border-radius: 15px;
+    border: none;
+    font: inherit;
+    background: rgba(0, 0, 0, 0.3);
+    height: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    text-indent: 20px;
+   }
+
+   .uploadPhoto input[type="file"]{
+     display: none;
+   }
+
+   .uploadPhoto label{
+     display: inline-block;
+    color: rgba(255, 255, 255, 0.8);
+    height: 20px;
+    width: 120px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 25px;
+    margin-left: 40%;
+    margin-bottom: 2%;
+   }
+
+
+.submitChanges input, .submitChanges2 input{
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  height: 30px;
+  width: 70px;
+  padding: 2px;
+  font-family: "Proxima Nova", Georgia, sans-serif !important;
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 40%;
+  margin-top: 10px;
+  border-radius: 25px;
+}
+
+.submitChanges2{
+  margin-left: 50px;
+}
+
+.enter input, .confirm input, .EnterOldpas input, .EnterNewPas input, .ConfirmPas input{
+  font-family: "Proxima Nova", Georgia, sans-serif !important;
+  margin: 10px 50px;
+  width: 90%;
+  border-radius: 15px;
+  border: none;
+  font: inherit;
+  background: rgba(0, 0, 0, 0.3);
+  height: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  text-indent: 20px;
+ }
+
+ .enter input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
+
+ .confirm input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
+
+ .EnterOldpas input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
+
+ .EnterNewPas input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
+
+ .ConfirmPas input::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+ }
+
+.country::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+}
+.name::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+}
+.username::placeholder{
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.emailChanges, .passChanges{
+  margin-top: 30px;
+}
+
+@media screen and (max-width:350px){
+ footer{
+   height: 60px;
+ }
+ 
+  footer img{
+     padding: 0px;
+     margin: 2px;
+  }
+
+  body{
+    height: 100%;
+  }
+
+  .typeMessage{
+    min-width: 210px;
+  }
+
+  .contact button{
+    margin-left: 40%;
+ }
+  .add button{
+    width: calc(100% - 22px);
+    margin: 5% auto 0 25%;
+  }
+
+ .photo.book{
+  margin: 10% auto 10% 10%;
+ }
+
+ .nickname{
+  margin: 0 auto 0 35%;
+}
+
+.profilePhoto2{
+   margin: 5% auto 3% 45%;
+}
+
+.wordTrade2 {
+  margin: 3% 7% 0% auto;
+}
+
+.profile button, .mail button, .password button{
+  margin: 5% auto 5% 20%;
+  width: 200px;
+  }
+
+  .enter input, .confirm input, .EnterOldpas input, .EnterNewPas input, .ConfirmPas input{
+    margin: 3% 25%;
+    width: 80%;
+  }
+    .submitChanges2 input{
+      margin-left: 35%;
+      margin-top: 5%;
+    }
+    
+    .makeaDeal button{
+       margin-left: 40%;
+    }
+
+}
+
+@media screen and (min-width: 350px){
+  .add{
+    margin: 2% 0% 2% 2%;
+   }
+   .add button{
+    width: calc(100% - 10px);
+    margin: 5% auto 0 30%;
+  }
+
+  .nickname{
+    margin: 0 auto 0 30%;
+  }
+  
+  .profilePhoto2{
+     margin: 5% auto 5% 45%;
+  }
+  .submitChanges2 input{
+    margin-left: 40%;
+    margin-top: 5%;
+  }
+
+  .makeaDeal button{
+     margin-left: 50%;
+  }
+  
+}
+
+@media screen and (min-width:449px){
+ 
+  .typeMessage{
+    min-width: 300px;
+    }
+
+   .message {
+     left: 15%;
+   } 
+
+   .about p {
+    width: 70%;
+    margin: 5% 10% 0% 35%;
+    }
+
+    .contact {
+       margin-left: 10%;
+    }
+
+    .wordTrade2 {
+      margin: 3% 7% 0% auto;
+    }
+
+    .photo .book {
+      width: 170px;
+      margin: 10% auto 10% 30%;
+      height: 270px;
+  }
+  .add{
+    margin: 2% 0% 2% 5%;
+   }
+
+   .add button{
+    width: calc(100% - 15px);
+    margin: 5% auto 0 40%;
+  }
+
+  .nickname{
+    margin: 0 auto 0 20%;
+  }
+ 
+  .profile button, .mail button, .password button{
+    margin: 3% auto 3% 15%;
+    }
+ 
+    .makeaDeal button{
+      margin-left: 60%;
+   }
+
+ }
+
+ @media screen and (min-width:549px){
+ 
+  .typeMessage{
+    width: 350px;
+    }
+
+    .about p {
+      width: 70%;
+      margin: 5% 10% 0% 25%;
+      }
+
+      .contact {
+        margin-left: 20%;
+     }
+     .photo .book {
+      margin: 10% auto 10% 30%;
+      width: 190px;
+      height: 290px;
+  }
+
+  .add{
+    margin: 2% 0% 2% 15%;
+   }
+   .photo{
+    height: 80%;
+    width: 90%;
+    margin-left: 5%;
+ }
+
+ .nickname{
+  margin: 0 auto 0 25%;
+}
+
+.profile button, .mail button, .password button{
+  margin: 2% auto 2% 25%;
+  }
+
+  .profilePhoto2{
+    margin: 5% auto 5% 50%;
+ }
+ 
+ .country, .name, .username{
+  margin: 2% 15%;
+ }
+
+ .uploadPhoto label{
+ margin-left: 45%;
+ margin-bottom: 2%;
+}
+
+.submitChanges input, .submitChanges2 input{
+  margin-left: 43%;
+  margin-top: 2%;
+}
+
+.enter input, .confirm input, .EnterOldpas input, .EnterNewPas input, .ConfirmPas input{
+  margin: 1% 15%;
+}
+  .submitChanges2 input{
+    margin-left: 48%;
+  }
+
+  .makeaDeal button{
+    margin-left: 70%;
+ }
+
+ }
+
+ @media screen and (min-width:649px){
+ 
+  .typeMessage{
+    min-width: 400px;
+    } 
+    .wordTrade2 {
+      margin: 3% 5% 0% auto;
+    }
+    .contact {
+      margin-left: 30%;
+   }
+   .photo .book {
+    margin: 10% auto 10% 30%;
+    width: 230px;
+    height: 330px;
+}
+
+.country, .name, .username{
+  margin: 1% 15%;
+ }
+
+.add button{
+  width: calc(100% - 22px);
+  margin: 5% auto 0 55%;
+}
+
+.nickname{
+  margin: 0 auto 0 25%;
+}
+
+.profile button, .mail button, .password button{
+  margin: 2% auto 2% 30%;
+  }
+
+  .profilePhoto2{
+    margin: 5% auto 5% 52%;
+ }
+
+
+ .uploadPhoto label{
+ margin-left: 50%;
+ margin-bottom: 2%;
+}
+
+.submitChanges input{
+  margin-left: 45%;
+  margin-top: 2%;
+}
+
+.submitChanges2 input{
+  margin-left: 50%;
+  margin-top: 2%;
+}
+.enter input, .confirm input, .EnterOldpas input, .EnterNewPas input, .ConfirmPas input{
+  margin: 1% 15%;
+}
+
+ }
+
+ @media screen and (min-width:750px){
+ 
+  .typeMessage{
+    min-width: 450px;
+    } 
+
+    .about p {
+      width: 80%;
+      margin: 5% 10% 0% 20%;
+      }
+
+      .contact {
+        margin-left: 50%;
+     }
+     .photo .book {
+      margin: 10% auto 10% 33%;
+      width: 250px;
+      height: 350px;
+    }
+
+    .add{
+      margin: 2% 0% 2% 20%;
+     }
+     .add button{
+      margin: 5% auto 0 60%;
+    }
+
+    
+    .profile button, .mail button, .password button{
+      margin: 2% auto 2% 35%;
+      }
+    
+      .profilePhoto2{
+        margin: 5% auto 2% 53%;
+     }
+
+     .submitChanges2 input{
+      margin-left: 52%;
+      margin-top: 2%;
+    }
+
+    .makeaDeal button{
+      margin-left: 75%;
+   }
+}
+
+@media screen and (min-width:850px){
+  .photo .book {
+    margin: 10% auto 10% 30%;
+    width: 300px;
+    height: 400px;
+  }
+
+  .profilePhoto2{
+    margin: 5% auto 2% 57%;
+ }
+  .add button{
+    margin: 5% auto 0 70%;
+  }
+  .profile button, .mail button, .password button{
+    margin: 2% auto 2% 40%;
+    }
+    .nickname{
+      margin: 0 auto 0 30%;
+    }
+
+    
+ .uploadPhoto label{
+  margin-left: 55%;
+  margin-bottom: 2%;
+ }
+ 
+ .submitChanges input, .submitChanges2 input{
+   margin-left: 48%;
+   margin-top: 2%;
+ }
+
+ .submitChanges2 input{
+  margin-left: 55%;
+  margin-top: 2%;
+}
+.message{
+  left: 20%;
+}
+
+
+}
+
+@media screen and (min-width:1024px){
+  .add button{
+    margin: 5% auto 0 80%;
+  }
+  .profilePhoto2{
+    margin: 5% auto 2% 55%;
+ }
+  .profile button, .mail button, .password button{
+    margin: 1% auto 1% 42%;
+    }
+    .nickname{
+      margin: 0 auto 0 24%;
+    }
+
+    .submitChanges2 input{
+      margin-left: 53%;
+    }
+    
+ .uploadPhoto label{
+  margin-left: 53%;
+  margin-bottom: 1%;
+ }
+ 
+ .submitChanges input{
+   margin-left: 46%;
+   margin-top: 1%;
+ }
+
+ .makeaDeal button{
+  margin-left: 80%;
+}
+
+
+  .message{
+    left: 25%;
+  }
+
+  .about p{
+    margin-left: 15%;
+  }
+
+}
+
+
+.contact button{
+  display: inline-block;
+   font-size: 14px;
+   margin-left: 50%;
+   margin-top: 20px;
+    width: 140px;
+    height: 30px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+    border: none;
+}
+
+.suggestion{
+  min-height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px 0;
+  border-radius: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+}
+
+.suggestion .boxFriend{
+  margin: 20px 5px 0px 5px;
+}
+
+.suggestion p{
+  padding: 10px 5px 0px 5px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+}
+
+.suggestion .user, .suggestion .book2, .suggestion .book3{
+  display: inline;
+  font-style: italic;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.makeaDeal button{
+  font-size: 14px;
+   width: 140px;
+   height: 30px;
+   margin-bottom: 5px;
+     background: transparent;
+     border-radius: 15px;
+     color: rgba(255, 255, 255, 0.8);
+     text-align: center;
+    border-style: solid;
+    border-width: 1px;
+}
