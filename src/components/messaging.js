@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
 import whitelist from '../images/whitelist.png';
 import wishlistImg from '../images/wishlist.svg';
-import handshake from '../images/wishlist.svg';
+import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
 
@@ -37,11 +38,11 @@ export default class messaging extends Component {
                         </section>
                     </section>
                     <footer>
-                        <div className="foot"><img src={whitelist}/></div>
-                        <div className="foot"><img src={wishlistImg}/></div>
-                        <div className="foot"><img src={handshake}/></div>
-                        <div className="foot"><img src={whitechat}/></div>
-                        <div className="foot"><img src={settings}/></div>
+                        <Link to = "/wishlist"><div className="foot"><img src={whitelist}/></div></Link>
+                        <Link to = "/ownedlist"><div className="foot"><img src={wishlistImg}/></div></Link>
+                        <Link to = "/deals"><div className="foot"><img src={handshake}/></div></Link>
+                        <Link to = "/messaging"><div className="foot"><img src={whitechat}/></div></Link>
+                        <Link to = "/settings"><div className="foot"><img src={settings}/></div></Link>
                     </footer>
                 </body>
             </React.Fragment>

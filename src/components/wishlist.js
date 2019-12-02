@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
 import add from '../images/ad.svg';
@@ -25,25 +26,33 @@ export default class wishlist extends Component {
           <div className="spacer"></div>
           <section className="wishList">
             <label className="wishlistLabel">WishList</label>
-            <div className="listItem">
-              <p>Elton John "Me"</p>
-            </div>
-            <div className="listItem">
-              <p>Adam Kay "This is Going to hurt"</p>
-            </div>
-            <div className="listItem">
-              <p>Andre Aciman "Find Me"</p>
-            </div>
-            <div className="listItem">
-              <p>Heather Morris "Cilka's Journey"</p>
-            </div>
+            <Link to = "/bookdetails">
+              <div className="listItem">
+                <p>Elton John "Me"</p>
+              </div>
+            </Link>
+            <Link to = "/bookdetails">
+              <div className="listItem">
+                <p>Adam Kay "This is Going to hurt"</p>
+              </div>
+            </Link>
+            <Link to = "/bookdetails">
+              <div className="listItem">
+                <p>Andre Aciman "Find Me"</p>
+              </div>
+            </Link>
+            <Link to = "/bookdetails">
+              <div className="listItem">
+                <p>Heather Morris "Cilka's Journey"</p>
+              </div>
+            </Link>
           </section>
           <footer>
-            <div className="foot"><img src={whitelist}/></div>
-            <div className="foot"><img src={wishlistImg}/></div>
-            <div className="foot"><img src={handshake}/></div>
-            <div className="foot"><img src={whitechat}/></div>
-            <div className="foot"><img src={settings}/></div>
+            <Link to = "/wishlist"><div className="foot"><img src={whitelist}/></div></Link>
+            <Link to = "/ownedlist"><div className="foot"><img src={wishlistImg}/></div></Link>
+            <Link to = "/deals"><div className="foot"><img src={handshake}/></div></Link>
+            <Link to = "/messaging"><div className="foot"><img src={whitechat}/></div></Link>
+            <Link to = "/settings"><div className="foot"><img src={settings}/></div></Link>
           </footer>
         </body>
       </React.Fragment>

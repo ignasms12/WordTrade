@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
 import BookImage from '../images/goldfinch.jpg';
@@ -17,20 +18,20 @@ export default class bookdetails extends Component {
             <React.Fragment>
                 <body>
                     <header>
-                        {/* <a href="./index2.html"><img class="back" src="./resources/imgs/back.jpg" alt="back"></a> */}
-                        <h1 class="wordTrade2">WordTrade</h1>
+                        {/* <a href="./index2.html"><img className="back" src="./resources/imgs/back.jpg" alt="back"></a> */}
+                        <h1 className="wordTrade2">WordTrade</h1>
                     </header>
-                    <div class="spacer"></div>
-                    <section class="wishList">
-                        <label class="wishlistLabel">Book details</label>
-                        <div class="photo">
-                            <img class="book" src={BookImage} alt=""/>
+                    <div className="spacer"></div>
+                    <section className="wishList">
+                        <label className="wishlistLabel">Book details</label>
+                        <div className="photo">
+                            <img className="book" src={BookImage} alt=""/>
                         </div>
-                        <div class="add">
+                        <div className="add">
                                 <button>Add to wishlist</button>
                                 <button>Write to a seller</button>
                         </div>             
-                        <div class="aboutBook"> 
+                        <div className="aboutBook"> 
                             <h3>Description</h3>
                             <p>
                                 {Description}
@@ -38,11 +39,11 @@ export default class bookdetails extends Component {
                         </div>
                     </section>
                     <footer>
-                        <div className="foot"><img src={whitelist}/></div>
-                        <div className="foot"><img src={wishlistImg}/></div>
-                        <div className="foot"><img src={handshake}/></div>
-                        <div className="foot"><img src={whitechat}/></div>
-                        <div className="foot"><img src={settings}/></div>
+                        <Link to = "/wishlist"><div className="foot"><img src={whitelist}/></div></Link>
+                        <Link to = "/ownedlist"><div className="foot"><img src={wishlistImg}/></div></Link>
+                        <Link to = "/deals"><div className="foot"><img src={handshake}/></div></Link>
+                        <Link to = "/messaging"><div className="foot"><img src={whitechat}/></div></Link>
+                        <Link to = "/settings"><div className="foot"><img src={settings}/></div></Link>
                     </footer>
                 </body>
             </React.Fragment>

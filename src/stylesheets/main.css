@@ -15,11 +15,14 @@ header {
   display:flex;
 }
 
+a {
+  text-decoration: none !important;
+}
 
 .wordTrade {
   position: relative;
   float: right;
-  margin: 3% 20% 0% 50%;
+  margin: 3% 5% 0% auto;
   font-weight: 700;
   text-transform: uppercase;
   color: white;
@@ -31,7 +34,7 @@ header {
 .wordTrade2 {
   position: relative;
   float: right;
-  margin: 3% 20% 0% 40%;
+  margin: 3% 5% 0% auto;
   font-weight: 700;
   text-transform: uppercase;
   color: white;
@@ -55,7 +58,7 @@ header {
   right: 5px;
   top: 32px;
   float: right;
-  margin: 0 10%;
+  margin: 0 10% 0 15%;
 }
 
 .addContainer img {
@@ -64,7 +67,7 @@ header {
 }
 
 .addItem {
-  margin: 0 20px;;
+  margin: 0 10% 0 5%;
   width: 87%;
   border-radius: 15px;
   border: none;
@@ -97,7 +100,7 @@ footer {
 .foot img {
   display: inline-block;
   width: 35px;
-  padding: 0 5px;
+  padding: 7px 5px;
   margin: 10px;
 }
 
@@ -133,7 +136,7 @@ footer {
 }
 
 .Search {
-  margin: 0 20px;;
+  margin: 0 10% 0 5%;
   width: 87%;
   border-radius: 15px;
   border: none;
@@ -171,7 +174,7 @@ font-size: 15px;
 
 
 .conv .boxMa{
-  background-image: url(../images/male.png);
+  /* background-image: url(../imgs/male.png); */
   background-size: 49px;
   background-repeat: no-repeat;
   background-position: center;
@@ -183,7 +186,7 @@ font-size: 15px;
 }
 
 .conv .boxFe{
-  background-image: url(../images/female.png);
+  /* background-image: url(../imgs/female.png); */
   background-size: 49px;
   background-repeat: no-repeat;
   background-position: center;
@@ -203,7 +206,7 @@ font-size: 15px;
 
 .typeMessage{
 height: 40px;
-width: 270px;
+min-width: 270px;
 outline: none;
 border-radius: 15px;
 border: none;
@@ -246,13 +249,13 @@ padding: 5px;
     background-color: rgba(255, 255, 255, 0.4);
     width: 70%;
     min-height: 30px;
-    margin: 20px auto 10px 90px;
+    margin: 2% auto 2% 25%;
     font-weight: normal;
     padding: 5px;
     }
 
     .boxFriend {
-      background-image: url(../images/male.png);
+      /* background-image: url(../imgs/male.png); */
       background-size: 39px;
       background-repeat: no-repeat;
       background-position: center;
@@ -265,7 +268,7 @@ padding: 5px;
   }
   
   .boxFriend2 {
-    background-image: url(../images/female.png);
+    /* background-image: url(../imgs/female.png); */
     background-size: 39px;
     background-repeat: no-repeat;
     background-position: center;
@@ -280,8 +283,8 @@ padding: 5px;
   .message{
   position: absolute;
   display: inline-block;
-  top: 80%;
-  left: 20px;
+  top: 77%;
+  left: 7%;
   }
   
 header .back{
@@ -302,7 +305,7 @@ header .top{
 
 
 .profilePhoto {
-  background-image: url(../images/male.png);
+  /* background-image: url(../imgs/male.png); */
   background-size: 50px;
   background-repeat: no-repeat;
   background-color: transparent;
@@ -326,7 +329,7 @@ display: block;
 font-size: 17px;
 width: 65%;
 min-height: 120px;
-margin: 0px auto 10px 120px;
+margin: 5% 10% 5% 35%;
  padding-top: 20px;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -346,9 +349,9 @@ margin: 0px auto 10px 120px;
   background-color:  rgba(255, 255, 255, 0.1);
   font-weight: normal;
   font-size: 16px;
-  width: 80%;
+  width: 95%;
   height: 20px;
-  margin: 10px auto 5px 0;
+  margin: 2% auto 1% 0;
   border-radius: 0 10px 10px 0;
   color: rgba(255, 255, 255, 0.8);
   padding: 10px 5px 10px 5px;
@@ -356,14 +359,15 @@ margin: 0px auto 10px 120px;
 
 .add{
   display: inline-block;
-  margin: 5px;
+  margin: 2% 0% 2% 2%;
 
 }
 .add button{
    font-size: 14px;
     display: inline-block;
     margin: 10px auto 0 10px;
-    width: 140px;
+    width: calc(50% - 22px);
+    padding: 10px 6px;
     height: 30px;
       background: rgba(255, 255, 255, 0.3);
       border-radius: 15px;
@@ -408,7 +412,7 @@ margin: 0px auto 10px 120px;
     border:none;
     float: left;
     border-radius: 0px;
-    margin: 20px auto 20px 90px;
+    margin: 10% auto 10% 28%;
 
 }
 
@@ -421,7 +425,7 @@ margin: 0px auto 10px 120px;
   .nickname{
     color: rgba(255, 255, 255, 0.8);
     font-size: 18px;
-    margin: 0 auto 0 80px;
+    margin: 0 auto 0 40%;
     text-align: center;
   }
 
@@ -429,7 +433,7 @@ margin: 0px auto 10px 120px;
     width: 100px;
     height: 100px;
     border-style: none;
-     margin: 10px auto 10px 120px;
+     margin: 5% auto 5% 50%;
     margin-top: 10px;
   }
 
@@ -438,7 +442,7 @@ margin: 0px auto 10px 120px;
     font-family: "Proxima Nova", Georgia, sans-serif !important;
     min-height: 50px;
     background: rgba(255, 255, 255, 0.2);
-    margin: 10px auto 10px 10px;
+    margin: 5% auto 5% 5%;
     border-radius: 15px;
     color: rgba(255, 255, 255, 0.8);
     border: none;
@@ -473,7 +477,7 @@ margin: 0px auto 10px 120px;
 
 
  .country, .name, .username{
-    margin: 10px 50px;
+    margin: 5% 10%;
     width: 70%;
     border-radius: 15px;
     border: none;
@@ -498,7 +502,7 @@ margin: 0px auto 10px 120px;
     padding: 5px;
     border-radius: 25px;
     margin-left: 40%;
-    margin-bottom: 10px;
+    margin-bottom: 2%;
    }
 
 
@@ -566,20 +570,404 @@ margin: 0px auto 10px 120px;
   margin-top: 30px;
 }
 
-@media screen and (max-width:340px){
+@media screen and (max-width:350px){
  footer{
    height: 60px;
  }
  
   footer img{
-     margin: 10px 5px;
+     padding: 0px;
+     margin: 2px;
   }
 
   body{
     height: 100%;
   }
 
+  .typeMessage{
+    min-width: 210px;
+  }
+
+  .contact button{
+    margin-left: 40%;
+ }
+  .add button{
+    width: calc(100% - 22px);
+    margin: 5% auto 0 25%;
+  }
+
+ .photo.book{
+  margin: 10% auto 10% 10%;
+ }
+
+ .nickname{
+  margin: 0 auto 0 35%;
 }
+
+.profilePhoto2{
+   margin: 5% auto 3% 45%;
+}
+
+.wordTrade2 {
+  margin: 3% 7% 0% auto;
+}
+
+.profile button, .mail button, .password button{
+  margin: 5% auto 5% 20%;
+  width: 200px;
+  }
+
+  .enter input, .confirm input, .EnterOldpas input, .EnterNewPas input, .ConfirmPas input{
+    margin: 3% 25%;
+    width: 80%;
+  }
+    .submitChanges2 input{
+      margin-left: 35%;
+      margin-top: 5%;
+    }
+    
+    .makeaDeal button{
+       margin-left: 40%;
+    }
+
+}
+
+@media screen and (min-width: 350px){
+  .add{
+    margin: 2% 0% 2% 2%;
+   }
+   .add button{
+    width: calc(100% - 10px);
+    margin: 5% auto 0 30%;
+  }
+
+  .nickname{
+    margin: 0 auto 0 30%;
+  }
+  
+  .profilePhoto2{
+     margin: 5% auto 5% 45%;
+  }
+  .submitChanges2 input{
+    margin-left: 40%;
+    margin-top: 5%;
+  }
+
+  .makeaDeal button{
+     margin-left: 50%;
+  }
+  
+}
+
+@media screen and (min-width:449px){
+ 
+  .typeMessage{
+    min-width: 300px;
+    }
+
+   .message {
+     left: 15%;
+   } 
+
+   .about p {
+    width: 70%;
+    margin: 5% 10% 0% 35%;
+    }
+
+    .contact {
+       margin-left: 10%;
+    }
+
+    .wordTrade2 {
+      margin: 3% 7% 0% auto;
+    }
+
+    .photo .book {
+      width: 170px;
+      margin: 10% auto 10% 30%;
+      height: 270px;
+  }
+  .add{
+    margin: 2% 0% 2% 5%;
+   }
+
+   .add button{
+    width: calc(100% - 15px);
+    margin: 5% auto 0 40%;
+  }
+
+  .nickname{
+    margin: 0 auto 0 20%;
+  }
+ 
+  .profile button, .mail button, .password button{
+    margin: 3% auto 3% 15%;
+    }
+ 
+    .makeaDeal button{
+      margin-left: 60%;
+   }
+
+ }
+
+ @media screen and (min-width:549px){
+ 
+  .typeMessage{
+    width: 350px;
+    }
+
+    .about p {
+      width: 70%;
+      margin: 5% 10% 0% 25%;
+      }
+
+      .contact {
+        margin-left: 20%;
+     }
+     .photo .book {
+      margin: 10% auto 10% 30%;
+      width: 190px;
+      height: 290px;
+  }
+
+  .add{
+    margin: 2% 0% 2% 15%;
+   }
+   .photo{
+    height: 80%;
+    width: 90%;
+    margin-left: 5%;
+ }
+
+ .nickname{
+  margin: 0 auto 0 25%;
+}
+
+.profile button, .mail button, .password button{
+  margin: 2% auto 2% 25%;
+  }
+
+  .profilePhoto2{
+    margin: 5% auto 5% 50%;
+ }
+ 
+ .country, .name, .username{
+  margin: 2% 15%;
+ }
+
+ .uploadPhoto label{
+ margin-left: 45%;
+ margin-bottom: 2%;
+}
+
+.submitChanges input, .submitChanges2 input{
+  margin-left: 43%;
+  margin-top: 2%;
+}
+
+.enter input, .confirm input, .EnterOldpas input, .EnterNewPas input, .ConfirmPas input{
+  margin: 1% 15%;
+}
+  .submitChanges2 input{
+    margin-left: 48%;
+  }
+
+  .makeaDeal button{
+    margin-left: 70%;
+ }
+
+ }
+
+ @media screen and (min-width:649px){
+ 
+  .typeMessage{
+    min-width: 400px;
+    } 
+    .wordTrade2 {
+      margin: 3% 5% 0% auto;
+    }
+    .contact {
+      margin-left: 30%;
+   }
+   .photo .book {
+    margin: 10% auto 10% 30%;
+    width: 230px;
+    height: 330px;
+}
+
+.country, .name, .username{
+  margin: 1% 15%;
+ }
+
+.add button{
+  width: calc(100% - 22px);
+  margin: 5% auto 0 55%;
+}
+
+.nickname{
+  margin: 0 auto 0 25%;
+}
+
+.profile button, .mail button, .password button{
+  margin: 2% auto 2% 30%;
+  }
+
+  .profilePhoto2{
+    margin: 5% auto 5% 52%;
+ }
+
+
+ .uploadPhoto label{
+ margin-left: 50%;
+ margin-bottom: 2%;
+}
+
+.submitChanges input{
+  margin-left: 45%;
+  margin-top: 2%;
+}
+
+.submitChanges2 input{
+  margin-left: 50%;
+  margin-top: 2%;
+}
+.enter input, .confirm input, .EnterOldpas input, .EnterNewPas input, .ConfirmPas input{
+  margin: 1% 15%;
+}
+
+ }
+
+ @media screen and (min-width:750px){
+ 
+  .typeMessage{
+    min-width: 450px;
+    } 
+
+    .about p {
+      width: 80%;
+      margin: 5% 10% 0% 20%;
+      }
+
+      .contact {
+        margin-left: 50%;
+     }
+     .photo .book {
+      margin: 10% auto 10% 33%;
+      width: 250px;
+      height: 350px;
+    }
+
+    .add{
+      margin: 2% 0% 2% 20%;
+     }
+     .add button{
+      margin: 5% auto 0 60%;
+    }
+
+    
+    .profile button, .mail button, .password button{
+      margin: 2% auto 2% 35%;
+      }
+    
+      .profilePhoto2{
+        margin: 5% auto 2% 53%;
+     }
+
+     .submitChanges2 input{
+      margin-left: 52%;
+      margin-top: 2%;
+    }
+
+    .makeaDeal button{
+      margin-left: 75%;
+   }
+}
+
+@media screen and (min-width:850px){
+  .photo .book {
+    margin: 10% auto 10% 30%;
+    width: 300px;
+    height: 400px;
+  }
+
+  .profilePhoto2{
+    margin: 5% auto 2% 57%;
+ }
+  .add button{
+    margin: 5% auto 0 70%;
+  }
+  .profile button, .mail button, .password button{
+    margin: 2% auto 2% 40%;
+    }
+    .nickname{
+      margin: 0 auto 0 30%;
+    }
+
+    
+ .uploadPhoto label{
+  margin-left: 55%;
+  margin-bottom: 2%;
+ }
+ 
+ .submitChanges input, .submitChanges2 input{
+   margin-left: 48%;
+   margin-top: 2%;
+ }
+
+ .submitChanges2 input{
+  margin-left: 55%;
+  margin-top: 2%;
+}
+.message{
+  left: 20%;
+}
+
+
+}
+
+@media screen and (min-width:1024px){
+  .add button{
+    margin: 5% auto 0 80%;
+  }
+  .profilePhoto2{
+    margin: 5% auto 2% 55%;
+ }
+  .profile button, .mail button, .password button{
+    margin: 1% auto 1% 42%;
+    }
+    .nickname{
+      margin: 0 auto 0 24%;
+    }
+
+    .submitChanges2 input{
+      margin-left: 53%;
+    }
+    
+ .uploadPhoto label{
+  margin-left: 53%;
+  margin-bottom: 1%;
+ }
+ 
+ .submitChanges input{
+   margin-left: 46%;
+   margin-top: 1%;
+ }
+
+ .makeaDeal button{
+  margin-left: 80%;
+}
+
+
+  .message{
+    left: 25%;
+  }
+
+  .about p{
+    margin-left: 15%;
+  }
+
+}
+
 
 .contact button{
   display: inline-block;
@@ -626,7 +1014,6 @@ margin: 0px auto 10px 120px;
    width: 140px;
    height: 30px;
    margin-bottom: 5px;
-   margin-left: 50%;
      background: transparent;
      border-radius: 15px;
      color: rgba(255, 255, 255, 0.8);
@@ -634,6 +1021,3 @@ margin: 0px auto 10px 120px;
     border-style: solid;
     border-width: 1px;
 }
-
-
-
