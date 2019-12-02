@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(event) {
     // Login / Registration logic
     //@TODO TRANSFER TO REACT  'note: not as important'
-    document.getElementById('signup').addEventListener("click", function(event){
+    const signup = document.getElementById('signup');
+    if(signup)
+    signup.addEventListener("click", function(event){
         event.preventDefault();
         document.getElementById('psw-repeat-form').classList.remove('display-none');
         document.getElementById('age-form').classList.remove('display-none');

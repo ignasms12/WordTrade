@@ -22,6 +22,11 @@ class Firebase
         //this.db = this.app.firestore();
     }
 
+    getAuth()
+    {
+        return this.auth;
+    }
+
     login(email, password)
     {
         return this.auth.signInWithEmailAndPassword(email, password);
