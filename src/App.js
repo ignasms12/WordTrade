@@ -4,6 +4,10 @@ import WishList from './components/wishlist';
 import OwnedList from './components/ownedlist';
 import Messaging from './components/messaging';
 import BookDetails from './components/bookdetails';
+import Settings from './components/settings';
+import editProfile from './components/editProfile';
+import editEmail from './components/editEmail';
+import editPassword from './components/editPassword';
 import firebase from './js/firebase';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import Home from './components/home';
@@ -43,8 +47,12 @@ class App extends React.Component {
              <Route exact path='/messaging' component={Messaging} />
              <Route exact path='/bookdetails' component={BookDetails} />
              <Route exact path='/verifyEmail' render={(props) => <VerifyEmail {...props} user={firebase.auth.currentUser} />} />
+             <Route exact path='/settings' component={Settings} />
+             <Route exact path='/editProfile' component={editProfile} />
+             <Route exact path='/editEmail' component={editEmail} />
+             <Route exact path='/editPassword' component={editPassword} />
            </Switch>
-           {this.state.user ? (this.state.user.emailVerified ?  (window.location.pathname === "/" ? <Redirect to='/wishlist'/> : console.log()) : <Redirect to='/verifyEmail' />) : <Redirect to='/' /> }
+           {/* {this.state.user ? (this.state.user.emailVerified ?  (window.location.pathname === "/" ? <Redirect to='/wishlist'/> : console.log()) : <Redirect to='/verifyEmail' />) : <Redirect to='/' /> } */}
        </div>
      </Router>
     )

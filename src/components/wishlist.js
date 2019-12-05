@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
+import '../js/dropDownApi.js';
 import add from '../images/ad.svg';
 import whitelist from '../images/whitelist.png';
 import wishlistImg from '../images/wishlist.svg';
 import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
+
 
 export default class wishlist extends Component {
   render() {
@@ -21,7 +23,8 @@ export default class wishlist extends Component {
             <div className="addContainer">
               <img src={add}/>
             </div>
-            <input className="addItem" type="text" placeholder="Add Item" />
+            <input id="addWishlist" className="addItem" type="text" placeholder="Add Item" />
+            <ul id="dropDownList"></ul>
           </section>
           <div className="spacer"></div>
           <section className="wishList">

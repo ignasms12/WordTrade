@@ -26,7 +26,7 @@ export default class editPassword extends Component {
                         <label className="wishlistLabel">Change Password</label>
                     
                         <div className="myprofile">
-                            <img className="profilePhoto2" src="./resources/imgs/male.png" alt=""/>
+                            <img className="profilePhoto2" src={malePng} alt=""/>
                             <div className="nickname">Lorem Ipsum </div>
                             <div>
                                 <input className="EnterOldpas" type="password" placeholder="Enter your old password..." name=""/>

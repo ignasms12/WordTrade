@@ -3,7 +3,6 @@ body {
   font-family: "Proxima Nova", Georgia, sans-serif !important;
   width: 100%;
   height: 100vh;
-  overflow: scroll;
   background: #31315c;
 }
 
@@ -17,6 +16,10 @@ header {
 
 a {
   text-decoration: none !important;
+}
+
+input:focus{
+  outline: 0px !important;
 }
 
 .wordTrade {
@@ -56,7 +59,7 @@ a {
 .addContainer {
   position: relative;
   right: 5px;
-  top: 32px;
+  top: 27px;
   float: right;
   margin: 0 10% 0 15%;
 }
@@ -68,7 +71,7 @@ a {
 
 .addItem {
   margin: 0 10% 0 5%;
-  width: 87%;
+  width: 90%;
   border-radius: 15px;
   border: none;
   font: inherit;
@@ -82,6 +85,47 @@ a {
 .addItem::placeholder {
   color: rgba(255, 255, 255, 0.8);
   text-indent: 10px;
+}
+
+.dropDown{
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0 0 20px 20px;
+  width: 90%;
+  padding: 0;
+  margin: 0 10% 0 5%;
+  position: absolute;
+}
+
+.dropDown li{
+  list-style: none;
+  padding: 10px;
+  transition: 0.1s padding linear;
+  border-bottom: solid black 1px;
+}
+
+.dropDown li p{
+  width: 80%;
+  margin: unset;
+}
+
+.dropDown li img {
+  position: absolute;
+  left: 92%;
+  height: 25px;
+}
+
+.dropDown li:last-child{
+  border-bottom: none;
+}
+
+.dropDown li:hover{
+  color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.borderUpdate{
+  border-radius: 15px 15px 0 0 !important;
 }
 
 footer {
