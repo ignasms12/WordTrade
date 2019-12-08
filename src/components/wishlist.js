@@ -29,22 +29,22 @@ export default class wishlist extends Component {
           <div className="spacer"></div>
           <section className="wishList">
             <label className="wishlistLabel">WishList</label>
-            <Link to = "/bookdetails">
+            <Link to = "/bookdetails?id=">
               <div className="listItem">
                 <p>Elton John "Me"</p>
               </div>
             </Link>
-            <Link to = "/bookdetails">
+            <Link to = "/bookdetails?id=hHGHDgAAQBAJ">
               <div className="listItem">
                 <p>Adam Kay "This is Going to hurt"</p>
               </div>
             </Link>
-            <Link to = "/bookdetails">
+            <Link to = "/bookdetails?id=4dGQDwAAQBAJ">
               <div className="listItem">
                 <p>Andre Aciman "Find Me"</p>
               </div>
             </Link>
-            <Link to = "/bookdetails">
+            <Link to = "/bookdetails?id=">
               <div className="listItem">
                 <p>Heather Morris "Cilka's Journey"</p>
               </div>

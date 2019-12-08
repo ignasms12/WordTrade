@@ -16,8 +16,10 @@ function apiCall(){
                     domUL.innerHTML = "";
                     for (var item in result.items){
                         var liNode = document.createElement("LI");
+                        console.log(result.items[item].id);
                         var spanNode = document.createElement("P");
-                        var textnode = document.createTextNode(result.items[item].volumeInfo.title);
+                        var textnode = document.createTextNode(result.items[item].volumeInfo.title + 
+                        " by " + result.items[item].volumeInfo.authors);
                         var btnNode = document.createElement("IMG");
                         btnNode.src = "./add.svg";
                         spanNode.appendChild(textnode);
