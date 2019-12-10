@@ -1,6 +1,7 @@
 import app from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firebase-firestore'
+import 'firebase/firestore'
 
 const fbConfig = {
     apiKey: "AIzaSyDfuFqY7fCQiG2HM0_GW7-yS8wTjW0oaCo",
@@ -19,7 +20,7 @@ class Firebase
     {
         app.initializeApp(fbConfig);
         this.auth = app.auth();
-        //this.db = this.app.firestore();
+        this.db = app.firestore();
     }
 
     getAuth()
@@ -40,12 +41,31 @@ class Firebase
     async register(email, password)
     {
         await this.auth.createUserWithEmailAndPassword(email, password);
+        return this.db
+        .collection("users")
+        .doc(this.auth.currentUser.uid).set({
+            wishlist: {
+                "books":[]
+            },
+            ownedlist: {
+                "books":[]
+            }
+        });
         // return this.auth.currentUser.updateProfile({
         //     displayName: name
         // })
     }
-    //@TODO ADD EMAIL VERIFICATION
-    //ADD AUTH LISTENER TO SOME COMPONENT
+
+    async addToWishlist(bookObject)
+    {
+        await this.db
+        .collection("users")
+        .doc(this.auth.currentUser.uid).update({
+            wishlist: {
+                books: this.db.firestore.FieldValue.arrayUnion(bookObject)
+            }
+        });
+    }
     //IMPLEMENT DATABASE SOLUTION FOR MESSAGING
     //IMPLEMENT USER CURRENT USER PROFILE NAME
 }
