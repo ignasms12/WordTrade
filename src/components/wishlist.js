@@ -10,7 +10,6 @@ import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
 
-
 export default class wishlist extends Component {
   render() {
     return (

@@ -21,7 +21,8 @@ export default class ownedlist extends Component {
                         <div className="addContainer">
                             <img src={add} />
                         </div>
-                        <input className="addItem" type="text" placeholder="Add Item" />
+                        <input className="addItem" id="addOwnedlist" type="text" placeholder="Add Item" />
+                        <ul id="dropDownList"></ul>
                     </section>
                     <div className="spacer"></div>
                     <section className="wishList">
