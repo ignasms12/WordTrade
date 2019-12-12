@@ -55,7 +55,6 @@ function useFormValidation(initialState, validate)
     }
 
     async function handleRegister() {
-        //@TODO E-mail verification
 		try {
         	await firebase.register(values.email, values.password)
 		} catch(error) {
@@ -67,7 +66,6 @@ function useFormValidation(initialState, validate)
 
     async function handleLogin()
     {
-        //@TODO Is E-mail verified? check
         try {
             await firebase.login(values.email, values.password)
         } catch(error) {

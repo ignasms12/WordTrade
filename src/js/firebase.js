@@ -56,16 +56,84 @@ class Firebase
         // })
     }
 
-    async addToWishlist(bookObject)
+    async getWishlist()
     {
+        let wishlist;
         await this.db
         .collection("users")
-        .doc(this.auth.currentUser.uid).update({
-            wishlist: {
-                books: this.db.firestore.FieldValue.arrayUnion(bookObject)
-            }
+        .doc(this.auth.currentUser.uid)
+        .get().then(function(doc) {
+            wishlist = doc.data().wishlist;
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
         });
+        if(wishlist)
+            return wishlist;
     }
+
+    async getOwnedlist()
+    {
+        let ownedlist;
+        await this.db
+        .collection("users")
+        .doc(this.auth.currentUser.uid)
+        .get().then(function(doc) {
+            ownedlist = doc.data().ownedlist;
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+        if(ownedlist)
+            return ownedlist;
+    }
+
+    async addToWishlist(bookObject)
+    {
+        let wishlist = await this.getWishlist(), bookArr = wishlist.books;
+        if(!bookArr.some(obj => obj.id === bookObject.id))
+        {
+            let ownedlist = await this.getOwnedlist(), ownedArr = ownedlist.books;
+            if(!ownedArr.some(obj => obj.id === bookObject.id))
+            {
+                bookArr.push(bookObject);
+                await this.db
+                .collection("users")
+                .doc(this.auth.currentUser.uid).set({
+                    wishlist: {
+                        books: bookArr
+                    }
+                }, {merge: true})
+            }
+        }
+        // await this.db
+        // .collection("users")
+        // .doc(this.auth.currentUser.uid).update({
+        //     wishlist: {
+        //         books: app.firestore.FieldValue.arrayUnion(bookObject)
+        //     }
+        // });
+    }
+
+    async addToOwnedlist(bookObject)
+    {
+        let ownedlist = await this.getOwnedlist(), bookArr = ownedlist.books;
+        if(!bookArr.some(obj => obj.id === bookObject.id))
+        {
+            let wishlist = await this.getWishlist(), wishedArr = wishlist.books;
+            if(!wishedArr.some(obj => obj.id === bookObject.id))
+            {
+                bookArr.push(bookObject);
+                await this.db
+                .collection("users")
+                .doc(this.auth.currentUser.uid).set({
+                    ownedlist: {
+                        books: bookArr
+                    }
+                }, {merge: true})
+            }
+        }
+    }
+
+
     //IMPLEMENT DATABASE SOLUTION FOR MESSAGING
     //IMPLEMENT USER CURRENT USER PROFILE NAME
 }
