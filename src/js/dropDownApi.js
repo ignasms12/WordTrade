@@ -57,6 +57,7 @@ function addEventListeners () {
             addBtns[element].onclick = function(){
                 // Su sitais dviem galima issiaiskint knygos ID, ir clickas is kurio puslapio atejo
                 console.log(this.id, "came from", this.cameFrom);
+                //firebase.findUserMatches(); Returns user book matches if any
                 if(this.cameFrom === "/ownedlist")
                     firebase.addToOwnedlist(this.bookObj);
                 else
@@ -64,6 +65,8 @@ function addEventListeners () {
             };
         } catch (error) {
             console.log("Error lmao: ", error);
+            //Kazkodel kai importuoju Firebase atsiranda erroras,
+            //Kuri tsg catchinu, nes why not :D
         }
 
     }
