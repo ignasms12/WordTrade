@@ -42,6 +42,7 @@ export default class bookdetails extends Component {
                     isLoaded: true,
                     book: result.items[0].volumeInfo
                 })
+                console.log(result)
             }
         )
     }

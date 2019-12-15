@@ -57,11 +57,15 @@ function addEventListeners () {
             addBtns[element].onclick = function(){
                 // Su sitais dviem galima issiaiskint knygos ID, ir clickas is kurio puslapio atejo
                 console.log(this.id, "came from", this.cameFrom);
+
+                // this.forceUpdate();
                 //firebase.findUserMatches(); Returns user book matches if any
-                if(this.cameFrom === "/ownedlist")
+                if(this.cameFrom === "/ownedlist"){
                     firebase.addToOwnedlist(this.bookObj);
-                else
+                    window.location.reload();
+                } else {
                     firebase.addToWishlist(this.bookObj);
+                }
             };
         } catch (error) {
             console.log("Error lmao: ", error);
