@@ -444,6 +444,10 @@ margin: 5% 10% 5% 35%;
   font-style: italic;
 }
 
+.noDeals {
+  color: white;
+}
+
 .aboutBook p {
   display: inline-block;
   font-size: 17px;
