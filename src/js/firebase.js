@@ -63,7 +63,7 @@ class Firebase {
       .catch(function(error) {
         console.log("Error getting wishList:", error);
       });
-    if (wishlist) return wishlist;
+    if (wishlist) return wishlist.books;
   }
 
   async getOwnedlist(uid = this.auth.currentUser.uid) {
@@ -78,7 +78,7 @@ class Firebase {
       .catch(function(error) {
         console.log("Error getting OwnedList:", error);
       });
-    if (ownedlist) return ownedlist;
+    if (ownedlist) return ownedlist.books;
   }
 
   async getUsers() {
@@ -91,20 +91,18 @@ class Firebase {
   }
 
   async addToWishlist(bookObject) {
-    let wishlist = await this.getWishlist(),
-      bookArr = wishlist.books;
-    if (!bookArr.some(obj => obj.id === bookObject.id)) {
-      let ownedlist = await this.getOwnedlist(),
-        ownedArr = ownedlist.books;
-      if (!ownedArr.some(obj => obj.id === bookObject.id)) {
-        bookArr.push(bookObject);
+    let wishlist = await this.getWishlist();
+    if (!wishlist.some(obj => obj.id === bookObject.id)) {
+      let ownedlist = await this.getOwnedlist();
+      if (!ownedlist.some(obj => obj.id === bookObject.id)) {
+        wishlist.push(bookObject);
         await this.db
           .collection("users")
           .doc(this.auth.currentUser.uid)
           .set(
             {
               wishlist: {
-                books: bookArr
+                books: wishlist
               }
             },
             { merge: true }
@@ -121,20 +119,18 @@ class Firebase {
   }
 
   async addToOwnedlist(bookObject) {
-    let ownedlist = await this.getOwnedlist(),
-      bookArr = ownedlist.books;
-    if (!bookArr.some(obj => obj.id === bookObject.id)) {
-      let wishlist = await this.getWishlist(),
-        wishedArr = wishlist.books;
-      if (!wishedArr.some(obj => obj.id === bookObject.id)) {
-        bookArr.push(bookObject);
+    let ownedlist = await this.getOwnedlist();
+    if (!ownedlist.some(obj => obj.id === bookObject.id)) {
+      let wishlist = await this.getWishlist();
+      if (!wishlist.some(obj => obj.id === bookObject.id)) {
+        ownedlist.push(bookObject);
         await this.db
           .collection("users")
           .doc(this.auth.currentUser.uid)
           .set(
             {
               ownedlist: {
-                books: bookArr
+                books: ownedlist
               }
             },
             { merge: true }
@@ -144,28 +140,24 @@ class Firebase {
   }
 
   async findUserMatches() {
-    let ownedlist = await this.getOwnedlist(),
-      ownedArr = ownedlist.books;
-    let wishlist = await this.getWishlist(),
-      wishedArr = wishlist.books;
+    let ownedlist = await this.getOwnedlist();
+    let wishlist = await this.getWishlist();
     //Get wishlists of OTHER users
     //Get all other user UID's
     let users = await this.getUsers();
     let matches = [];
     users = users.filter(user => user != this.auth.currentUser.uid);
     users.forEach(async user => {
-      let userOwnedList = await this.getOwnedlist(user),
-        userOwnedListArr = userOwnedList.books;
-      let userWishList = await this.getWishlist(user),
-        userWishListArr = userWishList.books;
-      wishedArr.forEach(wBook => {
-        const matchedOwnedBook = userOwnedListArr.find(
+      let userOwnedList = await this.getOwnedlist(user);
+      let userWishList = await this.getWishlist(user);
+      wishlist.forEach(wBook => {
+        const matchedOwnedBook = userOwnedList.find(
           uOBook => uOBook.id === wBook.id
         );
         if (matchedOwnedBook) {
           let matchedWishlistBook;
-          userWishListArr.forEach(uWBook => {
-            matchedWishlistBook = ownedArr.find(
+          userWishList.forEach(uWBook => {
+            matchedWishlistBook = ownedlist.find(
               oBook => oBook.id === uWBook.id
             );
           });

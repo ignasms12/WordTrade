@@ -9,16 +9,28 @@ import wishlistImg from '../images/wishlist.svg';
 import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
+import firebase from '../js/firebase.js';
 
 
 export default class wishlist extends Component {
-  componentDidMount(){ 
+  async componentDidMount(){ 
     document.getElementById("wishlist").classList.add("selected");
     document.getElementById("ownedlist").classList.remove("selected");
     document.getElementById("deals").classList.remove("selected");
     document.getElementById("messaging").classList.remove("selected");
     document.getElementById("settings").classList.remove("selected");
+    firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
+      if(user)
+      {
+        const wishList = await firebase.getWishlist();
+        console.log("Book object array: ", wishList);
+        wishList.forEach(book => {
+            console.log(book);
+        }); 
+      }
+    });
   }
+
   render() {
     return (
       <React.Fragment>
