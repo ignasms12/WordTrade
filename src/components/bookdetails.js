@@ -21,7 +21,7 @@ export default class bookdetails extends Component {
             book: []
         };
     }
-    componentWillMount(){       
+    componentDidMount(){       
         this.makeRemoteRequest();
     }
     async makeRemoteRequest() {
@@ -42,6 +42,7 @@ export default class bookdetails extends Component {
                     isLoaded: true,
                     book: result.items[0].volumeInfo
                 })
+                console.log(result)
             }
         )
     }
