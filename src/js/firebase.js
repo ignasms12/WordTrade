@@ -107,6 +107,11 @@ class Firebase {
         return null;
   }
 
+  getUserDoc()
+  {
+      return this.db.collection("users").doc(this.auth.currentUser.uid);
+  }
+
   async addToWishlist(bookObject) {
     let wishlist = await this.getWishlist();
     if (!wishlist.some(obj => obj.id === bookObject.id)) {
@@ -189,7 +194,7 @@ class Firebase {
           }
         }
       });
-      console.log(matches);
+      return matches;
 
       //First check if ownedList matches any of wishlist?
       //Then check if wishsList of theirs matches your ownedList

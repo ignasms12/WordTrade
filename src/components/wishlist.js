@@ -28,7 +28,13 @@ export default class wishlist extends Component {
         const wishList = await firebase.getWishlist();
         this.setState({
           isLoaded: true,
-          books: wishList
+          books: wishList,
+          observer: firebase.getUserDoc().onSnapshot(async(snapshot) => {
+            const wishList = await firebase.getWishlist();
+              this.setState({
+                  books: wishList, 
+              })
+          }, err => {console.log("Encountered error", err)}),
         });
         // document.getElementById("wishlist").classList.add("selected");
         // document.getElementById("ownedlist").classList.remove("selected");
