@@ -138,15 +138,27 @@ footer {
   border-top: solid #999 1px;
 }
 
-.foot{
-  display: inline;
+.navbar-element{
+  /* display: inline; */
+  /* background-color: #fff; */
+  width: 20%;
+  float: left;
+  padding-top: 10px;
+  /* transition: background-color 1s; */
 }
 
-.foot img {
-  display: inline-block;
+.navbar-element img {
   width: 35px;
-  padding: 7px 5px;
-  margin: 10px;
+}
+
+.navbar-element span {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 12px;
+  display: inherit;
+}
+
+.selected{
+  background-color: rgba(49, 49, 92, 0.3);
 }
 
 .wishList {
@@ -219,7 +231,7 @@ font-size: 15px;
 
 
 .conv .boxMa{
-  /* background-image: url(../imgs/male.png); */
+  background-image: url("../images/male.png");
   background-size: 49px;
   background-repeat: no-repeat;
   background-position: center;
@@ -231,7 +243,7 @@ font-size: 15px;
 }
 
 .conv .boxFe{
-  /* background-image: url(../imgs/female.png); */
+  background-image: url("../images/female.png");
   background-size: 49px;
   background-repeat: no-repeat;
   background-position: center;
@@ -300,7 +312,7 @@ padding: 5px;
     }
 
     .boxFriend {
-      /* background-image: url(../imgs/male.png); */
+      background-image: url("../images/male.png");
       background-size: 39px;
       background-repeat: no-repeat;
       background-position: center;
@@ -313,7 +325,7 @@ padding: 5px;
   }
   
   .boxFriend2 {
-    /* background-image: url(../imgs/female.png); */
+    background-image: url("../images/female.png");
     background-size: 39px;
     background-repeat: no-repeat;
     background-position: center;
@@ -350,7 +362,7 @@ header .top{
 
 
 .profilePhoto {
-  /* background-image: url(../imgs/male.png); */
+  background-image: url("../images/male.png");
   background-size: 50px;
   background-repeat: no-repeat;
   background-color: transparent;

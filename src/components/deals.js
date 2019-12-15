@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
-import add from '../images/ad.svg';
 import whitelist from '../images/whitelist.png';
 import wishlistImg from '../images/wishlist.svg';
 import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
-
-export default class ownedlist extends Component {
+import add from '../images/ad.svg';
+export default class deals extends Component {
     componentDidMount(){ 
         document.getElementById("wishlist").classList.remove("selected");
-        document.getElementById("ownedlist").classList.add("selected");
-        document.getElementById("deals").classList.remove("selected");
+        document.getElementById("ownedlist").classList.remove("selected");
+        document.getElementById("deals").classList.add("selected");
         document.getElementById("messaging").classList.remove("selected");
         document.getElementById("settings").classList.remove("selected");
     }
@@ -21,35 +20,34 @@ export default class ownedlist extends Component {
         return (
             <React.Fragment>
                 <body>
-                    <header>
+                    <header>                    
                         <h1 className="wordTrade">WordTrade</h1>
                     </header>
+
                     <section className="Add Item">
                         <div className="addContainer">
                             <img src={add} />
                         </div>
-                        <input className="addItem" id="addOwnedlist" type="text" placeholder="Add Item" />
-                        <ul id="dropDownList"></ul>
+                        <input className="Search" type="text" placeholder="Search" />
                     </section>
+
                     <div className="spacer"></div>
                     <section className="wishList">
-                        <label className="wishlistLabel">Your books</label>
-                        <Link to = "/bookdetails">
-                            <div className="listItem">
-                                <p>Doris Lessing "The Golden Notebook"</p>
-                            </div>
-                        </Link>
-                        <Link to = "/bookdetails">
-                            <div className="listItem">
-                                <p>Donna Tartt "The Goldfinch"</p>
-                            </div>
-                        </Link>
-                        <Link to = "/bookdetails">
-                            <div className="listItem">
-                                <p>Charlotte Bronte "Jane Eyre"</p>
-                            </div>
-                        </Link>
+                        <label className="wishlistLabel">Deals</label>
+
+                        <div className="suggestion">
+                                <div className="boxFriend"></div>
+                                <p>
+                                    <div className="user">John</div> has <div className="book2">Elton John "Me"</div> and wants to trade
+                                    <div className="book3">Charlotte Bronte "Jane Eyre".</div>
+                                </p>
+                                <div className="makeaDeal">
+                                    <button>Make a deal</button>
+                                </div>
+                        </div>
+                    
                     </section>
+
                     <footer>
                         <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
                         <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg}/><span>OwnedList</span></div></Link>

@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/form';
 import WishList from './components/wishlist';
 import OwnedList from './components/ownedlist';
+import Deals from './components/deals';
 import Messaging from './components/messaging';
 import BookDetails from './components/bookdetails';
 import Settings from './components/settings';
@@ -44,6 +45,7 @@ class App extends React.Component {
              <Route exact path='/home' component={Home} />
              <Route exact path='/wishlist' component={WishList} />
              <Route exact path='/ownedlist' component={OwnedList} />
+             <Route exact path='/deals' component={Deals} />
              <Route exact path='/messaging' component={Messaging} />
              <Route exact path='/bookdetails' component={BookDetails} />
              <Route exact path='/verifyEmail' render={(props) => <VerifyEmail {...props} user={firebase.auth.currentUser} />} />
@@ -52,7 +54,7 @@ class App extends React.Component {
              <Route exact path='/editEmail' component={editEmail} />
              <Route exact path='/editPassword' component={editPassword} />
            </Switch>
-           {this.state.user ? (this.state.user.emailVerified ?  (window.location.pathname === "/" ? <Redirect to='/wishlist'/> : console.log()) : <Redirect to='/verifyEmail' />) : <Redirect to='/' /> }
+           {/* {this.state.user ? (this.state.user.emailVerified ?  (window.location.pathname === "/" ? <Redirect to='/wishlist'/> : console.log()) : <Redirect to='/verifyEmail' />) : <Redirect to='/' /> } */}
        </div>
      </Router>
     )

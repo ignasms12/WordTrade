@@ -9,6 +9,13 @@ import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
 
 export default class messaging extends Component {
+    componentDidMount(){ 
+        document.getElementById("wishlist").classList.remove("selected");
+        document.getElementById("ownedlist").classList.remove("selected");
+        document.getElementById("deals").classList.remove("selected");
+        document.getElementById("messaging").classList.add("selected");
+        document.getElementById("settings").classList.remove("selected");
+    }
     render() {
         return (
             <React.Fragment>
@@ -38,11 +45,11 @@ export default class messaging extends Component {
                         </section>
                     </section>
                     <footer>
-                        <Link to = "/wishlist"><div className="foot"><img src={whitelist}/></div></Link>
-                        <Link to = "/ownedlist"><div className="foot"><img src={wishlistImg}/></div></Link>
-                        <Link to = "/deals"><div className="foot"><img src={handshake}/></div></Link>
-                        <Link to = "/messaging"><div className="foot"><img src={whitechat}/></div></Link>
-                        <Link to = "/settings"><div className="foot"><img src={settings}/></div></Link>
+                        <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
+                        <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg}/><span>OwnedList</span></div></Link>
+                        <Link to = "/deals"><div id="deals" className="navbar-element"><img src={handshake}/><span>Deals</span></div></Link>
+                        <Link to = "/messaging"><div id="messaging" className="navbar-element"><img src={whitechat}/><span>Messaging</span></div></Link>
+                        <Link to = "/settings"><div id="settings" className="navbar-element"><img src={settings}/><span>Settings</span></div></Link>
                     </footer>
                 </body>
             </React.Fragment>
