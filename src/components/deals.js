@@ -23,7 +23,6 @@ export default class deals extends Component {
         firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
           if(user){
             const matches = await firebase.findUserMatches();
-            console.log("Matches are : ", matches);
             this.setState({
               isLoaded: true,
               dealsai: matches
@@ -33,11 +32,12 @@ export default class deals extends Component {
   }
     render() {
         const { error, isLoaded, dealsai } = this.state;
+        console.log(dealsai);
         if (error) {
         return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
         return <div>Loading...</div>;
-        } else if (!dealsai.userID) {
+        } else if (!isLoaded) {
             return (
                 <React.Fragment>
                     <body>
@@ -88,7 +88,8 @@ export default class deals extends Component {
                         <div className="spacer"></div>
                         <section className="wishList">
                             <label className="wishlistLabel">Deals</label>
-
+                            {console.log("Pries pat", dealsai)}
+                            {console.log("Pries pat lengh", dealsai.length)}
                             {dealsai.map(deal => (
                             <div className="suggestion">
                                 <div className="boxFriend"></div>
