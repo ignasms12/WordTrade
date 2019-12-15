@@ -51,6 +51,15 @@ class Firebase {
     // })
   }
 
+  async resetPassword()
+  {
+      this.auth.sendPasswordResetEmail(this.auth.currentUser.email).then(function(){
+          //Email sent
+      }).catch(function(error) {
+          console.log("Couldn't send pswd reset email");
+      })
+  }
+
   async getWishlist(uid = this.auth.currentUser.uid) {
     let wishlist;
     await this.db
@@ -88,6 +97,14 @@ class Firebase {
     snapshot.forEach(doc => documents.push(doc.id));
 
     return documents;
+  }
+
+  getUsername()
+  {
+      if(this.auth.currentUser)
+        return this.auth.currentUser.displayName;
+      else
+        return null;
   }
 
   async addToWishlist(bookObject) {
