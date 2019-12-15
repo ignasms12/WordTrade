@@ -59,7 +59,7 @@ function addEventListeners () {
                 console.log(this.id, "came from", this.cameFrom);
 
                 // this.forceUpdate();
-                //firebase.findUserMatches(); Returns user book matches if any
+                firebase.findUserMatches(); //Returns user book matches if any
                 if(this.cameFrom === "/ownedlist"){
                     firebase.addToOwnedlist(this.bookObj);
                 } else {

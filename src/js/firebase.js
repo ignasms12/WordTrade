@@ -182,19 +182,19 @@ class Firebase {
             matchedWishlistBook = ownedlist.find(
               oBook => oBook.id === uWBook.id
             );
+            if(matchedWishlistBook)
+            {
+              matches.push({
+                full: true,
+                userID: user,
+                yourBook: matchedWishlistBook,
+                hisBook: matchedOwnedBook
+              });
+            }
           });
-          if (matchedWishlistBook) {
-            //Full match found.
-            matches.push({
-              full: true,
-              userID: user,
-              yourBook: matchedWishlistBook,
-              hisBook: matchedOwnedBook
-            });
-          }
         }
       });
-      return matches;
+      console.log( matches);
 
       //First check if ownedList matches any of wishlist?
       //Then check if wishsList of theirs matches your ownedList
