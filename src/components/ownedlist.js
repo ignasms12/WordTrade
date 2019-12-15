@@ -16,7 +16,8 @@ export default class ownedlist extends Component {
         this.state = {
           error: null,
           isLoaded: false,
-          books: []
+          books: [],
+          observer: null,
         };
     }
     async componentDidMount(){ 
@@ -25,7 +26,13 @@ export default class ownedlist extends Component {
             const ownedlist = await firebase.getOwnedlist();
             this.setState({
               isLoaded: true,
-              books: ownedlist
+              books: ownedlist,
+              observer: firebase.getUserDoc().onSnapshot(async(snapshot) => {
+                const ownedlist = await firebase.getOwnedlist();
+                  this.setState({
+                      books: ownedlist, 
+                  })
+              }, err => {console.log("Encountered error", err)}),
             });
         }
     });
