@@ -51,13 +51,26 @@ class Firebase {
     // })
   }
 
-  async resetPassword()
+  async changeEmail(email)
   {
-      this.auth.sendPasswordResetEmail(this.auth.currentUser.email).then(function(){
-          //Email sent
-      }).catch(function(error) {
-          console.log("Couldn't send pswd reset email");
+    await this.auth.currentUser
+    .updateProfile(email)
+    .then(function() {
+      //Changed successfully.
+    }).catch(function(error) {
+      console.log("Error happened...", error);
+    });
+  }
+
+  async resetPassword() {
+    await this.auth
+      .sendPasswordResetEmail(this.auth.currentUser.email)
+      .then(function() {
+        //Email sent
       })
+      .catch(function(error) {
+        console.log("Couldn't send pswd reset email");
+      });
   }
 
   async getWishlist(uid = this.auth.currentUser.uid) {
@@ -99,17 +112,13 @@ class Firebase {
     return documents;
   }
 
-  getUsername()
-  {
-      if(this.auth.currentUser)
-        return this.auth.currentUser.displayName;
-      else
-        return null;
+  getUsername() {
+    if (this.auth.currentUser) return this.auth.currentUser.displayName;
+    else return null;
   }
 
-  getUserDoc()
-  {
-      return this.db.collection("users").doc(this.auth.currentUser.uid);
+  getUserDoc() {
+    return this.db.collection("users").doc(this.auth.currentUser.uid);
   }
 
   async addToWishlist(bookObject) {
@@ -182,8 +191,7 @@ class Firebase {
             matchedWishlistBook = ownedlist.find(
               oBook => oBook.id === uWBook.id
             );
-            if(matchedWishlistBook)
-            {
+            if (matchedWishlistBook) {
               matches.push({
                 full: true,
                 userID: user,
@@ -194,14 +202,13 @@ class Firebase {
           });
         }
       });
-      return matches;
-
       //First check if ownedList matches any of wishlist?
       //Then check if wishsList of theirs matches your ownedList
       //If your ownedList matches their wishlist and if your wishlist matches their owned list
       //Get full match = true
       //else incomplete match = true
     });
+    return matches;
   }
 
   //IMPLEMENT DATABASE SOLUTION FOR MESSAGING
