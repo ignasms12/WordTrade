@@ -21,7 +21,7 @@ export default class bookdetails extends Component {
             book: []
         };
     }
-    componentWillMount(){       
+    componentDidMount(){       
         this.makeRemoteRequest();
     }
     async makeRemoteRequest() {

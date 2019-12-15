@@ -54,7 +54,7 @@ class App extends React.Component {
              <Route exact path='/editEmail' component={editEmail} />
              <Route exact path='/editPassword' component={editPassword} />
            </Switch>
-           {/* {this.state.user ? (this.state.user.emailVerified ?  (window.location.pathname === "/" ? <Redirect to='/wishlist'/> : console.log()) : <Redirect to='/verifyEmail' />) : <Redirect to='/' /> } */}
+           {this.state.user ? (this.state.user.emailVerified ?  (window.location.pathname === "/" ? <Redirect to='/wishlist'/> : console.log()) : <Redirect to='/verifyEmail' />) : <Redirect to='/' /> }
        </div>
      </Router>
     )
