@@ -107,6 +107,7 @@ class Firebase {
             },
             { merge: true }
           );
+        window.location.reload();
       }
     }
     // await this.db
@@ -135,6 +136,7 @@ class Firebase {
             },
             { merge: true }
           );
+        // window.location.assign("/ownedlist");
       }
     }
   }
@@ -172,7 +174,6 @@ class Firebase {
           }
         }
       });
-      console.log(matches);
 
       //First check if ownedList matches any of wishlist?
       //Then check if wishsList of theirs matches your ownedList
@@ -180,6 +181,8 @@ class Firebase {
       //Get full match = true
       //else incomplete match = true
     });
+    console.log(matches);
+    return matches;
   }
 
   //IMPLEMENT DATABASE SOLUTION FOR MESSAGING

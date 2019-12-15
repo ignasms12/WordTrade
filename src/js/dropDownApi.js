@@ -62,7 +62,7 @@ function addEventListeners () {
                 //firebase.findUserMatches(); Returns user book matches if any
                 if(this.cameFrom === "/ownedlist"){
                     firebase.addToOwnedlist(this.bookObj);
-                    window.location.reload();
+                    // window.location.reload();
                 } else {
                     firebase.addToWishlist(this.bookObj);
                 }
