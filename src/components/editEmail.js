@@ -24,15 +24,17 @@ export default class editEmail extends Component {
                     <section className="wishList">
                         <label className="wishlistLabel">Change Email</label>
                         <div className="myprofile">
-                            <img className="profilePhoto2" src={malePng} alt=""/>
-                            <div className="nickname">Lorem Ipsum </div>
-                            <div>
-                                <input  className="enter" type="text" placeholder="Enter an email address" name=""/>
+                            <div className="imgcontainer">
+                                <img className="profilePhoto" src={malePng}/>
                             </div>
-                            <div >
-                                <input className="confirm" type="text" placeholder="Confirm the email address" name=""/>
+                            <div className="nickname">Username here</div>
+                            <div className = "inputcontainer field">
+                                <input type="text" placeholder="Enter an email address" name=""/>
                             </div>
-                            <div className="submitChanges2">
+                            <div className = "inputcontainer field">
+                                <input type="text" placeholder="Confirm the email address" name=""/>
+                            </div>
+                            <div className="submitChanges">
                                 <input  className="submit" type="submit" name="Submit"/>
                             </div>
                         </div>
