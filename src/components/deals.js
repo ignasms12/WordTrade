@@ -22,7 +22,8 @@ export default class deals extends Component {
     async componentDidMount(){ 
         firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
           if(user){
-            const matches = await firebase.findUserMatches();
+            let matches;
+            await firebase.findUserMatches().then(matches => console.log(matches));
             this.setState({
               isLoaded: true,
               dealsai: matches

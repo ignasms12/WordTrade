@@ -208,8 +208,7 @@ class Firebase {
       //Get full match = true
       //else incomplete match = true
     });
-    if(matches)
-      return matches;
+    return matches;
   }
 
   //IMPLEMENT DATABASE SOLUTION FOR MESSAGING
