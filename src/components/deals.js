@@ -22,8 +22,7 @@ export default class deals extends Component {
     async componentDidMount(){ 
         firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
           if(user){
-            let matches;
-            await firebase.findUserMatches().then(matches => console.log(matches));
+            let matches = await firebase.getDeals();
             this.setState({
               isLoaded: true,
               dealsai: matches
@@ -33,7 +32,6 @@ export default class deals extends Component {
   }
     render() {
         const { error, isLoaded, dealsai } = this.state;
-        console.log(dealsai);
         if (error) {
         return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {

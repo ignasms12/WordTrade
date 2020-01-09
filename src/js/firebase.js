@@ -51,15 +51,15 @@ class Firebase {
     // })
   }
 
-  async changeEmail(email)
-  {
+  async changeEmail(email) {
     await this.auth.currentUser
-    .updateProfile(email)
-    .then(function() {
-      //Changed successfully.
-    }).catch(function(error) {
-      console.log("Error happened...", error);
-    });
+      .updateProfile(email)
+      .then(function() {
+        //Changed successfully.
+      })
+      .catch(function(error) {
+        console.log("Error happened...", error);
+      });
   }
 
   async resetPassword() {
@@ -101,6 +101,21 @@ class Firebase {
         console.log("Error getting OwnedList:", error);
       });
     if (ownedlist) return ownedlist.books;
+  }
+
+  async getDeals(uid = this.auth.currentUser.uid) {
+    let deals;
+    await this.db
+      .collection("users")
+      .doc(uid)
+      .get()
+      .then(function(doc) {
+        deals = doc.data().deals.matches;
+      })
+      .catch(function(error) {
+        console.log("Error getting deals:", error);
+      });
+    if (deals) return deals;
   }
 
   async getUsers() {
@@ -147,6 +162,7 @@ class Firebase {
     //         books: app.firestore.FieldValue.arrayUnion(bookObject)
     //     }
     // });
+    this.updateMatches();
   }
 
   async addToOwnedlist(bookObject) {
@@ -168,6 +184,7 @@ class Firebase {
           );
       }
     }
+    this.updateMatches();
   }
 
   async findUserMatches() {
@@ -208,7 +225,26 @@ class Firebase {
       //Get full match = true
       //else incomplete match = true
     });
-    return matches;
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(matches);
+      }, 1000);
+    });
+  }
+
+  async updateMatches() {
+    let updatedMatches = await this.findUserMatches();
+    await this.db
+      .collection("users")
+      .doc(this.auth.currentUser.uid)
+      .set(
+        {
+          deals: {
+            matches: updatedMatches
+          }
+        },
+        { merge: true }
+      );
   }
 
   //IMPLEMENT DATABASE SOLUTION FOR MESSAGING
