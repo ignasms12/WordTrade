@@ -247,6 +247,42 @@ class Firebase {
       );
   }
 
+  async createChatRoom(roomID, uid2)
+  {
+    const room = {
+      roomID: roomID,
+      uid1: this.auth.currentUser.uid,
+      uid2: uid2
+    }
+    await this.db
+    .collection("users")
+    .doc(this.auth.currentUser.uid)
+    .set(
+      {
+        chatRooms: {
+          rooms: room
+        }
+      },
+      { merge: true }
+    );
+  }
+
+  async getUserChats(uid = this.auth.currentUser.uid)
+  {
+    let rooms;
+    await this.db
+      .collection("users")
+      .doc(uid)
+      .get()
+      .then(function(doc) {
+        rooms = doc.data().chatRooms.rooms;
+      })
+      .catch(function(error) {
+        console.log("Error getting chat rooms:", error);
+      });
+    if (rooms) return rooms;
+  }
+
   //IMPLEMENT DATABASE SOLUTION FOR MESSAGING
   //IMPLEMENT USER CURRENT USER PROFILE NAME
 }
