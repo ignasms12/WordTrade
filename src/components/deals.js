@@ -59,7 +59,6 @@ export default class deals extends Component {
                             <h1 className="noDeals">Sorry, we couldn't find any deals for you at the moment. :(</h1>
                         
                         </section>
-
                         <footer>
                             <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
                             <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg}/><span>OwnedList</span></div></Link>
@@ -78,14 +77,12 @@ export default class deals extends Component {
                         <header>                    
                             <h1 className="wordTrade">WordTrade</h1>
                         </header>
-
                         {/* <section className="Add Item">
                             <div className="addContainer">
                                 <img src={add} />
                             </div>
                             <input className="Search" type="text" placeholder="Search" />
                         </section> */}
-
                         <div className="spacer"></div>
                         <section className="wishList">
                             <label className="wishlistLabel">Deals</label>
@@ -105,7 +102,6 @@ export default class deals extends Component {
                             ))}
                         
                         </section>
-
                         <footer>
                             <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
                             <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg}/><span>OwnedList</span></div></Link>

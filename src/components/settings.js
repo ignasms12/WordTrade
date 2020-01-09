@@ -30,10 +30,12 @@ export default class settings extends Component {
                     <section className="wishList">
                         <label className="wishlistLabel">Settings</label>
                         <div className="myprofile">
-                            <img className="profilePhoto2" src={malePng}/>
-                            <div className="nickname">Lorem Ipsum</div>
+                            <div class="imgcontainer">
+                                <img className="profilePhoto" src={malePng}/>
+                            </div>
+                            <div className="nickname">Username here</div>
                             <Link to = "/editProfile">
-                                <div className="profile">
+                                <div className="editProfile">
                                     <button>Edit my profile</button>
                                 </div>
                             </Link>

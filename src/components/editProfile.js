@@ -26,22 +26,24 @@ export default class editProfile extends Component {
                         <label className="wishlistLabel">Edit Profile</label>
 
                         <div className="myprofile">
-                            <img className="profilePhoto2" src={malePng} alt=""/>
-                            <div className="nickname">Lorem Ipsum</div>
+                            <div class="imgcontainer">
+                                <img className="profilePhoto" src={malePng}/>
+                            </div>
+                            <div className="nickname">Username here</div>
 
                             <div className="uploadPhoto">
                                 <input  className="choosePhoto" type="file" id="file" accept="image/*" />
-                                <label fors="file">Change My Photo</label>
+                                <label fors="file">Upload Picture</label>
                             </div>
 
-                            <div>
-                                <input className="country" type="text" placeholder="Country" name=""/>
+                            <div class = "inputcontainer field">
+                                <input type="text" placeholder="Country" name=""/>
                             </div>
-                            <div>
-                                <input className="name" type="text" placeholder="Full name" name=""/>
+                            <div class = "inputcontainer field">
+                                <input type="text" placeholder="Full name" name=""/>
                             </div>
-                            <div>
-                                <input className="username" type="text" placeholder="Username" name=""/>
+                            <div class = "inputcontainer field">
+                                <input type="text" placeholder="Username" name=""/>
                             </div>
                         </div>
                         <div className="submitChanges">

@@ -33,7 +33,12 @@ export default class wishlist extends Component {
             const wishList = await firebase.getWishlist();
               this.setState({
                   books: wishList, 
-              })
+              });
+              var domUL = document.getElementById("dropDownList");
+              var domInput = document.getElementById("addWishlist");
+              domUL.classList.remove("dropDown");
+              domInput.classList.remove("borderUpdate");
+              domUL.innerHTML = "";
           }, err => {console.log("Encountered error", err)}),
         });
         // document.getElementById("wishlist").classList.add("selected");

@@ -31,7 +31,14 @@ export default class ownedlist extends Component {
                 const ownedlist = await firebase.getOwnedlist();
                   this.setState({
                       books: ownedlist, 
-                  })
+                  });
+                //   var domUL = document.getElementById("dropDownList");
+                //   var domInput = document.getElementById("addOwnedlist");
+                //   if(domUL && domInput){
+                //     domUL.classList.remove("dropDown");
+                //     domInput.classList.remove("borderUpdate");
+                //     domUL.innerHTML = "";
+                //   }
               }, err => {console.log("Encountered error", err)}),
             });
         }

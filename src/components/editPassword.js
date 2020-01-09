@@ -26,18 +26,20 @@ export default class editPassword extends Component {
                         <label className="wishlistLabel">Change Password</label>
                     
                         <div className="myprofile">
-                            <img className="profilePhoto2" src={malePng} alt=""/>
-                            <div className="nickname">Lorem Ipsum </div>
-                            <div>
+                            <div class="imgcontainer">
+                                <img className="profilePhoto" src={malePng}/>
+                            </div>
+                            <div className="nickname">Username here</div>
+                            <div className = "inputcontainer field">
                                 <input className="EnterOldpas" type="password" placeholder="Enter your old password..." name=""/>
                             </div>
-                            <div>
+                            <div className = "inputcontainer field">
                                 <input className="EnterNewPas" type="password" placeholder="Enter a new password" name=""/>
                             </div>
-                            <div>
+                            <div className = "inputcontainer field">
                                 <input className="ConfirmPas" type="password" placeholder="Confirm the password" name=""/>
                             </div>  
-                            <div className="submitChanges2">
+                            <div className="submitChanges">
                                 <input className="submit" type="submit" name="Submit"/>
                             </div>
                         </div>
