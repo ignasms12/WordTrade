@@ -36,7 +36,7 @@ export default class deals extends Component {
         return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
         return <div>Loading...</div>;
-        } else if (!isLoaded) {
+        } else if (!dealsai) {
             return (
                 <React.Fragment>
                     <body>
@@ -84,8 +84,6 @@ export default class deals extends Component {
                         <div className="spacer"></div>
                         <section className="wishList">
                             <label className="wishlistLabel">Deals</label>
-                            {console.log("Pries pat", dealsai)}
-                            {console.log("Pries pat lengh", dealsai.length)}
                             {dealsai.map(deal => (
                             <div className="suggestion">
                                 <div className="boxFriend"></div>
