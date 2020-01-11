@@ -10,10 +10,14 @@ import validateAuth from "../js/validateAuth";
 function Form(props){
 
     const INITIAL_STATE = {
+        name: "",
         email: "",
         password: "",
         passwordRpt: "",
         signUp: false,
+        country: "",
+        number: "",
+        age: "",
         /* @TODO 
         Additional info
         Age,
@@ -61,16 +65,17 @@ function Form(props){
                             </div>
                             <div id="age-form" className="form-group display-none left">
                                 <label className="labelis" htmlFor="age">Age</label>
-                                <input id="age" type="text" name="age" className="form-control txt-block" placeholder="Age" required/>
+                                <input id="age" type="text" name="age" value={values.age} onChange={handleChange} onBlur={handleBlur} className="form-control txt-block" placeholder="Age" required/>
                             </div>
                             <div id="car-model-form" className="form-group display-none right">
                                 <label className="labelis" htmlFor="model">Number</label>
-                                <input id="telefono-nr" type="text" name="tlf" className="form-control txt-block" required placeholder="Phone number"/>
+                                <input id="number" type="text" name="number" value={values.number} onChange={handleChange} onBlur={handleBlur} className="form-control txt-block" required placeholder="Phone number"/>
                             </div>
                             <div id="info-form" className="form-group display-none">
                                 <label className="labelis" htmlFor="info">Additional info</label>
                                 <textarea id="info" className="form-control txt-block" placeholder="Tell us a little bit about yourself!" name="info" rows="3"></textarea>
                             </div>
+                            <div hidden><input id="test" required/></div> 
                             <button id="login" name="login-submit" signup="false" onClick={handleSubmit} className="centerHorizontally btn btn-primary">Login</button>
                         </form>
                         <span id="account">Don't have an account yet? <a id="signup">Signup</a></span>

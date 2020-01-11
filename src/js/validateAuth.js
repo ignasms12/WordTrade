@@ -18,7 +18,8 @@ export default function validateAuth(values) {
     if(!values.name)
     {
         errors.name = "Name is required";
-    } else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.name))
+    } else if(!/^[a-zA-Z]+ [a-zA-Z]+$/i.test(values.name))
         errors.name = "Invalid name";
+
     return errors;
 }

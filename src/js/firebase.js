@@ -33,8 +33,14 @@ class Firebase {
     return this.auth.signOut();
   }
 
-  async register(email, password) {
-    await this.auth.createUserWithEmailAndPassword(email, password);
+  async register(name, email, password, country, number, age) {
+    console.log(number, country);
+    await this.auth.createUserWithEmailAndPassword(email, password)
+    .then(function(result) {
+      return result.user.updateProfile({
+        displayName: name,
+      })
+    })
     return this.db
       .collection("users")
       .doc(this.auth.currentUser.uid)
@@ -44,11 +50,13 @@ class Firebase {
         },
         ownedlist: {
           books: []
+        },
+        info: {
+          phoneNumber: number,
+          country: country,
+          age: age,
         }
       });
-    // return this.auth.currentUser.updateProfile({
-    //     displayName: name
-    // })
   }
 
   async changeEmail(email) {

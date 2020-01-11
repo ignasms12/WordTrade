@@ -47,16 +47,28 @@ function useFormValidation(initialState, validate)
     {
         const validationErrors = validate(values);
         setErrors(validationErrors);
-
-        if(e.target.getAttribute('signup') === 'true')
-            handleRegister();
-        else
+        
+        const noErrors = Object.keys(errors).length === 0;
+        if(noErrors){
+            if(e.target.getAttribute('signup') === 'true')
+                handleRegister();
+            else
+                handleLogin();
+        }
+        //Error checking is then done server-side by Firebase
+        else if(e.target.getAttribute('signup') === 'false')
             handleLogin();
     }
 
     async function handleRegister() {
 		try {
-        	await firebase.register(values.email, values.password)
+            await firebase.register(
+                values.name,
+                values.email,
+                values.password,
+                values.country,
+                values.number,
+                values.age)
 		} catch(error) {
             alert(error.message)
             setServerError(error.message);

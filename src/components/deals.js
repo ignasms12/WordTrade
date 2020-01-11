@@ -19,7 +19,7 @@ export default class deals extends Component {
           dealsai: []
         };
     }
-    async componentDidMount(){ 
+    async componentDidMount(){
         firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
           if(user){
             let matches = await firebase.getDeals();
