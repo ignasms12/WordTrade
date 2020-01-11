@@ -29,7 +29,7 @@ export default class editProfile extends Component {
                             <div class="imgcontainer">
                                 <img className="profilePhoto" src={malePng}/>
                             </div>
-                            <div className="nickname">Username here</div>
+                            <div className="nickname">{this.props.user.displayName}</div>
 
                             <div className="uploadPhoto">
                                 <input  className="choosePhoto" type="file" id="file" accept="image/*" />

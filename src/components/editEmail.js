@@ -27,7 +27,7 @@ export default class editEmail extends Component {
                             <div className="imgcontainer">
                                 <img className="profilePhoto" src={malePng}/>
                             </div>
-                            <div className="nickname">Username here</div>
+                            <div className="nickname">{this.props.user.displayName}</div>
                             <div className = "inputcontainer field">
                                 <input type="text" placeholder="Enter an email address" name=""/>
                             </div>

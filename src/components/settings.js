@@ -33,7 +33,7 @@ export default class settings extends Component {
                             <div class="imgcontainer">
                                 <img className="profilePhoto" src={malePng}/>
                             </div>
-                            <div className="nickname">Username here</div>
+                                <div className="nickname">{this.props.user.displayName}</div>
                             <Link to = "/editProfile">
                                 <div className="editProfile">
                                     <button>Edit my profile</button>

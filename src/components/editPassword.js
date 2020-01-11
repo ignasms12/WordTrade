@@ -29,7 +29,7 @@ export default class editPassword extends Component {
                             <div class="imgcontainer">
                                 <img className="profilePhoto" src={malePng}/>
                             </div>
-                            <div className="nickname">Username here</div>
+                            <div className="nickname">{this.props.user.displayName}</div>
                             <div className = "inputcontainer field">
                                 <input className="EnterOldpas" type="password" placeholder="Enter your old password..." name=""/>
                             </div>
