@@ -182,7 +182,7 @@ class Firebase {
     //         books: app.firestore.FieldValue.arrayUnion(bookObject)
     //     }
     // });
-    this.updateMatches();
+    await this.updateMatches();
   }
 
   async addToOwnedlist(bookObject) {
@@ -204,7 +204,7 @@ class Firebase {
           );
       }
     }
-    this.updateMatches();
+    await this.updateMatches();
   }
 
   async findUserMatches() {
@@ -245,15 +245,17 @@ class Firebase {
       //Get full match = true
       //else incomplete match = true
     });
+    console.log(matches);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(matches);
-      }, 1000);
+      }, 2000);
     });
   }
 
   async updateMatches() {
     let updatedMatches = await this.findUserMatches();
+    console.log("UPDATED MATCHES: ", updatedMatches);
     await this.db
       .collection("users")
       .doc(this.auth.currentUser.uid)
