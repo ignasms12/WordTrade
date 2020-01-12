@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
 import whitelist from '../images/whitelist.png';
@@ -8,10 +8,40 @@ import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settingsPng from '../images/settings-gears.svg';
 import malePng from '../images/male.png';
+import useFormValidation from '../js/useFormValidation';
+import validateAuth from "../js/validateAuth";
+import firebase from '../js/firebase.js';
 
 
-export default class editEmail extends Component {
-    render() {
+
+
+export default function EditEmail(props){
+
+    const INITIAL_STATE = {
+        email: "",
+        emailRpt: "",
+    }
+    const { 
+        handle,
+        handleChange,
+        handleBlur,
+        values,
+        errors,
+        serverError,
+        isSubmitting
+    } = useFormValidation(INITIAL_STATE, validateAuth);
+
+    const handleSubmit = async () => {
+        if(values.email === values.emailRpt)
+        {
+            await firebase.changeEmail(values.email);
+            window.location.reload();
+        }
+        else
+            alert("Email entered must be the same in both fields.");
+    }
+    if(props.user)
+    {
         return (
             <React.Fragment>
                 <body>
@@ -27,15 +57,15 @@ export default class editEmail extends Component {
                             <div className="imgcontainer">
                                 <img className="profilePhoto" src={malePng}/>
                             </div>
-                            <div className="nickname">{this.props.user.displayName}</div>
+                            <div className="nickname">{props.user.displayName}</div>
                             <div className = "inputcontainer field">
-                                <input type="text" placeholder="Enter an email address" name=""/>
+                                <input type="email" value={values.email} onChange={handleChange} onBlur={handleBlur} placeholder="Enter an email address" name="email"/>
                             </div>
                             <div className = "inputcontainer field">
-                                <input type="text" placeholder="Confirm the email address" name=""/>
+                                <input type="emailRpt" value={values.emailRpt} onChange={handleChange} onBlur={handleBlur} placeholder="Confirm the email address" name="emailRpt"/>
                             </div>
                             <div className="submitChanges">
-                                <input  className="submit" type="submit" name="Submit"/>
+                                <input className="submit" type="submit" onClick={handleSubmit} name="Submit"/>
                             </div>
                         </div>
                     
@@ -51,4 +81,7 @@ export default class editEmail extends Component {
             </React.Fragment>
         )
     }
+    else
+        return(<Redirect to='/' />)
+
 }
