@@ -248,6 +248,7 @@ footer {
 .rooms-list{
   float: left;
   height: 100%;
+  width: 45%;
   padding-top: 40px;
   padding-right: 40px;
   border-right: 1px solid black;
