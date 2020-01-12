@@ -1,49 +1,118 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Chatkit from '@pusher/chatkit-client';
+import MessageList from './messaging-components/MessageList';
+import SendMessageForm from './messaging-components/SendMessageForm';
+import RoomList from './messaging-components/RoomList';
+import NewRoomForm from './messaging-components/NewRoomForm';
 import { Link } from 'react-router-dom';
-import '../stylesheets/main.css';
-import '../fonts/fonts.css';
 import whitelist from '../images/whitelist.png';
 import wishlistImg from '../images/wishlist.svg';
 import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
 
-export default class messaging extends Component {
-    componentDidMount(){ 
-        document.getElementById("wishlist").classList.remove("selected");
-        document.getElementById("ownedlist").classList.remove("selected");
-        document.getElementById("deals").classList.remove("selected");
-        document.getElementById("messaging").classList.add("selected");
-        document.getElementById("settings").classList.remove("selected");
+import { tokenUrl, instanceLocator } from './config'
+
+class App extends React.Component {
+    
+    constructor() {
+        super()
+        this.state = {
+            roomId: null,
+            messages: [],
+            joinableRooms: [],
+            joinedRooms: []
+        }
+        this.sendMessage = this.sendMessage.bind(this)
+        this.subscribeToRoom = this.subscribeToRoom.bind(this)
+        this.getRooms = this.getRooms.bind(this)
+        this.createRoom = this.createRoom.bind(this)
+    } 
+    
+    componentDidMount() {
+        const chatManager = new Chatkit.ChatManager({
+            instanceLocator : instanceLocator,
+            userId: 'testinisuseris',
+            tokenProvider: new Chatkit.TokenProvider({
+                url: tokenUrl
+            })
+        })
+        
+        chatManager.connect()
+        .then(currentUser => {
+            this.currentUser = currentUser
+            this.getRooms()
+        })
+        .catch(err => console.log('error on connecting: ', err))
     }
+    
+    getRooms() {
+        this.currentUser.getJoinableRooms()
+        .then(joinableRooms => {
+            this.setState({
+                joinableRooms,
+                joinedRooms: this.currentUser.rooms
+            })
+            // console.log(this.currentUser.rooms[0].id);
+            // this.subscribeToRoom(this.currentUser.rooms[0].id);
+        })
+        .catch(err => console.log('error on joinableRooms: ', err))
+    }
+    
+    subscribeToRoom(roomId) {
+        this.setState({ messages: [] })
+        this.currentUser.subscribeToRoomMultipart({
+            roomId: roomId,
+            hooks: {
+                onMessage: message => {
+                    this.setState({
+                        messages: [...this.state.messages, message]
+                    })
+                }
+                
+            }
+        })
+        .then(room => {
+            this.setState({
+                roomId: room.id
+            })
+            this.getRooms()
+        })
+        .catch(err => console.log('error on subscribing to room: ', err))
+    }
+    
+    sendMessage(text) {
+        this.currentUser.sendMessage({
+            text,
+            roomId: this.state.roomId
+        })
+    }
+    
+    createRoom(name) {
+        this.currentUser.createRoom({
+            name
+        })
+        .then(room => {
+            this.subscribeToRoom(room.id)
+        })
+        .catch(err => console.log('error with createRoom: ', err))
+    }
+    
     render() {
         return (
             <React.Fragment>
                 <body>
-                    <header>
-                        {/* <a href="./index3.html"><img class="back" src="./resources/imgs/back.png" alt="back"></a> */}
-                        <h1 class="wordTrade2">WordTrade</h1>
-
-                    </header>
-                    <div class="spacer"></div>
-                    <section class="wishList">
-                        <label class="wishlistLabel">Lilly</label>
-
-                        <div class="conversation">
-                            <div class="boxFriend2"></div>
-                            <h4 class="friend">Hey! I saw you have the book "Me" by Elton John. Maybe you want some book from my list?</h4>
-                            <h4 class="you">Hi, Lilly! I'll check your list later!</h4>
-                            <div class="boxFriend2"></div>
-                            <h4 class="friend">Ok, let me know</h4>
-                        </div>
-
-                        <section class="message">
-                            <form>
-                                {/* <input class="typeMessage" type="text" placeholder="Type your message..." name=""> */}
-                                {/* <input class="send" type="image" src="./resources/imgs/send2.png" name=""> */}
-                            </form>
-                        </section>
-                    </section>
+                    <RoomList
+                        subscribeToRoom={this.subscribeToRoom}
+                        rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}
+                        roomId={this.state.roomId} />
+                    <MessageList 
+                        roomId={this.state.roomId}
+                        messages={this.state.messages} />
+                    <SendMessageForm
+                        disabled={!this.state.roomId}
+                        sendMessage={this.sendMessage} />
+                    {/* <NewRoomForm createRoom={this.createRoom} /> */}
                     <footer>
                         <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
                         <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg}/><span>OwnedList</span></div></Link>
@@ -53,6 +122,8 @@ export default class messaging extends Component {
                     </footer>
                 </body>
             </React.Fragment>
-        )
+        );
     }
 }
+
+export default App

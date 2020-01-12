@@ -94,7 +94,9 @@ body {
 
 .labelis {
   text-transform: uppercase;
-  font-family: 'Proxima Nova', Georgia, sans-serif;
+  font-family: 'Proxima Nova',
+ Georgia,
+ sans-serif;
   color: rgba(255, 255, 255, 0.75);
   font-weight: 700;
   margin-left: 5px;
@@ -366,4 +368,5 @@ nav a {
   -webkit-transition-delay: .3s;
           transition-delay: .3s;
 }
+
 /*# sourceMappingURL=style.css.map */

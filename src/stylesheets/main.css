@@ -228,7 +228,88 @@ footer {
 
 }
 
+.roomListHeader{
+  color: white;
+}
 
+.room{
+  list-style: none;
+  font-size: 24px;
+}
+
+.room a{
+  color: white;
+}
+
+.room a:hover{
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rooms-list{
+  float: left;
+  height: 100%;
+  padding-top: 40px;
+  padding-right: 40px;
+  border-right: 1px solid black;
+}
+
+.rooms-list ul{
+  padding-left: 20px;
+}
+
+.message {
+  margin: 15px 0;
+}
+
+.message .message-username {
+  font-size: 11px;
+  color: #11d7d8;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+.message .message-text {
+  background: #fd9ab6;
+  color: #fff4e6;
+  display: inline;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.message-list {
+  box-sizing: border-box;
+  padding-left: 15px;
+  float: left;
+  width: 45%;
+  height: 100%;
+}
+
+.message-list .join-room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 34px;
+  font-weight: 300;
+}
+
+.send-message-form{
+  position: fixed;
+  bottom: 100px;
+  left: 45%;
+  width: calc(55% + 10px)!important;
+}
+
+.send-message-form input{
+  padding: 15px 10px;
+}
+
+.send-message-form input:focus {
+  outline-width: 0;
+}
+
+.send-message-form input::placeholder {
+  color: var(--main-text-color);
+}
 
 .conv .boxMa {
   background-image: url("../images/male.png");
@@ -252,13 +333,6 @@ footer {
   float: left;
   margin: 0px 5px auto 10px;
   border-radius: 50px;
-}
-
-.message {
-  position: relative;
-  display: inline-block;
-  font-size: 15px;
-  overflow: hidden;
 }
 
 .typeMessage {
@@ -335,13 +409,6 @@ footer {
   border-radius: 50px;
   margin-left: 10px;
   margin-right: 1px;
-}
-
-.message {
-  position: absolute;
-  display: inline-block;
-  top: 77%;
-  left: 7%;
 }
 
 header .back {
@@ -701,10 +768,6 @@ header .top {
     min-width: 300px;
   }
 
-  .message {
-    left: 15%;
-  }
-
   .about p {
     width: 70%;
     margin: 5% 10% 0% 35%;
@@ -898,11 +961,6 @@ header .top {
     margin-bottom: 2%;
   }
 
-  .message {
-    left: 20%;
-  }
-
-
 }
 
 @media screen and (min-width:1024px) {
@@ -927,11 +985,6 @@ header .top {
 
   .makeaDeal button {
     margin-left: 80%;
-  }
-
-
-  .message {
-    left: 25%;
   }
 
   .about p {
