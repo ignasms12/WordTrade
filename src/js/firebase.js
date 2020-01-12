@@ -60,25 +60,37 @@ class Firebase {
   }
 
   async changeEmail(email) {
-    await this.auth.currentUser
-      .updateProfile(email)
+    const auth = this.auth;
+    await auth.currentUser
+      .updateEmail(email)
       .then(function() {
         //Changed successfully.
+        alert("Email changed.");
       })
       .catch(function(error) {
         console.log("Error happened...", error);
+        if(error.code === "auth/requires-recent-login")
+        {
+          alert("You need to re-authenticate to perform this action!");
+          auth.signOut();
+        }
+        else
+          alert(error);
       });
   }
 
   async resetPassword() {
-    await this.auth
+    if(this.auth.currentUser){
+      await this.auth
       .sendPasswordResetEmail(this.auth.currentUser.email)
       .then(function() {
         //Email sent
+        alert("Password reset sent to email.");
       })
       .catch(function(error) {
         console.log("Couldn't send pswd reset email");
       });
+    }
   }
 
   async getWishlist(uid = this.auth.currentUser.uid) {

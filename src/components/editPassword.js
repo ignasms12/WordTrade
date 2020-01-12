@@ -8,9 +8,13 @@ import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settingsPng from '../images/settings-gears.svg';
 import malePng from '../images/male.png';
-
+import firebase from '../js/firebase.js';
 
 export default class editPassword extends Component {
+    handleSubmit = () => {
+        if(this.props.user)
+            firebase.resetPassword();
+    }
     render() {
         return (
             <React.Fragment>
@@ -30,18 +34,8 @@ export default class editPassword extends Component {
                                 <img className="profilePhoto" src={malePng}/>
                             </div>
                             <div className="nickname">{this.props.user.displayName}</div>
-                            <div className = "inputcontainer field">
-                                <input className="EnterOldpas" type="password" placeholder="Enter your old password..." name=""/>
-                            </div>
-                            <div className = "inputcontainer field">
-                                <input className="EnterNewPas" type="password" placeholder="Enter a new password" name=""/>
-                            </div>
-                            <div className = "inputcontainer field">
-                                <input className="ConfirmPas" type="password" placeholder="Confirm the password" name=""/>
-                            </div>  
-                            <div className="submitChanges">
-                                <input className="submit" type="submit" name="Submit"/>
-                            </div>
+
+                            <button id="sendPswReset" name="sendPswReset" onClick={this.handleSubmit} className="centerHorizontally btn btn-primary">Send Password Reset</button>
                         </div>
                     </section>
                     <footer>
