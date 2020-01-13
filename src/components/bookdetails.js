@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import firebase from '../js/firebase.js';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
 import BookImage from '../images/goldfinch.jpg';
@@ -42,17 +43,23 @@ export default class bookdetails extends Component {
             (result) => {
                 this.setState({
                     isLoaded: true,
-                    book: result.items[0].volumeInfo
+                    book: result.items[0],
                 })
-                if(typeof(this.state.book.imageLinks) !== "undefined")
+                if(this.state.book.hasOwnProperty('volumeInfo') && this.state.book)
                 {
-                    this.setState({
-                        bookThumbnail: this.state.book.imageLinks.thumbnail,
-                    })
+                    if(this.state.book.volumeInfo.hasOwnProperty('imageLinks')){
+                        this.setState({
+                            bookThumbnail: this.state.book.volumeInfo.imageLinks.thumbnail,
+                        })
+                    }
                 }
                 console.log(result)
             }
         )
+    }
+    handleClick = async () =>{
+        await firebase.addToWishlist(this.state.book);
+        alert("Book added to wishlist!");
     }
     render() {
         const { error, isLoaded, book } = this.state;
@@ -75,15 +82,15 @@ export default class bookdetails extends Component {
                                 <img className="book" src={this.state.bookThumbnail} alt=""/>
                             </div>
                             <div className="add">
-                                    <button>Add to wishlist</button>
+                                    <button onClick={this.handleClick}>Add to wishlist</button>
                                     <button>Write to a seller</button>
                             </div>
-                            <h1 className="bookTitle">{book.title}</h1>
-                            <p className="authors">by {book.authors}</p>           
+                            <h1 className="bookTitle">{book.volumeInfo.title}</h1>
+                            <p className="authors">by {book.volumeInfo.authors}</p>           
                             <div className="aboutBook"> 
                                 <h3>Description</h3>
                                 <p>
-                                    {book.description}
+                                    {book.volumeInfo.description}
                                 </p>   
                             </div>
                         </section>

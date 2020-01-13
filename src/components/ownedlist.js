@@ -24,7 +24,6 @@ export default class ownedlist extends Component {
           if(user){
             //firebase.updateMatches();
             const ownedlist = await firebase.getOwnedlist();
-            console.log(ownedlist);
             this.setState({
               isLoaded: true,
               books: ownedlist,

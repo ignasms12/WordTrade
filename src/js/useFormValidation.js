@@ -58,6 +58,8 @@ function useFormValidation(initialState, validate)
         //Error checking is then done server-side by Firebase
         else if(e.target.getAttribute('signup') === 'false')
             handleLogin();
+        else
+            alert(validationErrors);
     }
 
     async function handleRegister() {

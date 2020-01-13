@@ -36,7 +36,7 @@ export default class wishlist extends Component {
                   books: wishList, 
               });
               var domUL = document.getElementById("dropDownList");
-              var domInput = document.getElementById("addOwnedlist");
+              var domInput = document.getElementById("addWishlist");
               if(domUL && domInput){
                 domUL.classList.remove("dropDown");
                 domInput.classList.remove("borderUpdate");
