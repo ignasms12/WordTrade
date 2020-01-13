@@ -10,6 +10,7 @@ import wishlistImg from '../images/wishlist.svg';
 import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
+import firebase from '../js/firebase.js';
 
 import { tokenUrl, instanceLocator } from './config'
 
@@ -30,20 +31,41 @@ class App extends React.Component {
     } 
     
     componentDidMount() {
-        const chatManager = new Chatkit.ChatManager({
-            instanceLocator : instanceLocator,
-            userId: 'testinisuseris',
-            tokenProvider: new Chatkit.TokenProvider({
-                url: tokenUrl
+        var uid;
+        firebase.auth.onAuthStateChanged(async(user) => {
+            if(user){
+                uid = user.uid;
+            };
+
+            let data = "stringeroo";
+
+            // fetch("http://localhost:4000/postreq", {
+            // method: "POST", 
+            // body: JSON.stringify(data)
+            // }).then(res => {
+            // console.log("Request complete! response:", res);
+            // });
+
+            var req = new XMLHttpRequest();
+            req.open("POST", "http://localhost:4000/postreq", true);
+            req.setRequestHeader('Content-Type', 'application/json');
+            req.send(JSON.stringify({datas: "stringeruo"}))
+
+            const chatManager = new Chatkit.ChatManager({
+                instanceLocator : instanceLocator,
+                userId: uid,
+                tokenProvider: new Chatkit.TokenProvider({
+                    url: tokenUrl
+                })
             })
-        })
-        
-        chatManager.connect()
-        .then(currentUser => {
-            this.currentUser = currentUser
-            this.getRooms()
-        })
-        .catch(err => console.log('error on connecting: ', err))
+            
+            chatManager.connect()
+            .then(currentUser => {
+                this.currentUser = currentUser
+                this.getRooms()
+            })
+            .catch(err => console.log('error on connecting: ', err))
+        });
     }
     
     getRooms() {
