@@ -8,6 +8,7 @@ import wishlistImg from '../images/wishlist.svg';
 import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
+import noImg from '../images/noImg.svg';
 //var Description = "Aged thirteen, Theo Decker, son of a devoted mother and a reckless, largely absent father, survives an accident that otherwise tears his life apart. Alone and rudderless in New York, he is taken in by the family of a wealthy friend. He is tormented by an unbearable longing for his mother, and down the years clings to the thing that most reminds him of her: a small, strangely captivating painting that ultimately draws him into the criminal underworld. As he grows up, Theo learns to glide between the drawing rooms of the rich and the dusty antiques store where he works. He is alienated and in love - and his talisman, the painting, places him at the centre of a narrowing, ever more dangerous circle. The Goldfinch is a haunted odyssey through present-day America and a drama of enthralling power. Combining unforgettably vivid characters and thrilling suspense, it is a beautiful, addictive triumph - a sweeping story of loss and obsession, of survival and self-invention, of the deepest mysteries of love, identity and fate.";
 // TODO padaryt kad per urla gal paimtu some kind of book code
 // ir pagal tai is db pasiimtu pavadinima ir tada butu iskarto import {name} ir componentas done
@@ -18,7 +19,8 @@ export default class bookdetails extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            book: []
+            book: [],
+            bookThumbnail: noImg,
         };
     }
     componentDidMount(){       
@@ -42,6 +44,12 @@ export default class bookdetails extends Component {
                     isLoaded: true,
                     book: result.items[0].volumeInfo
                 })
+                if(typeof(this.state.book.imageLinks) !== "undefined")
+                {
+                    this.setState({
+                        bookThumbnail: this.state.book.imageLinks.thumbnail,
+                    })
+                }
                 console.log(result)
             }
         )
@@ -64,7 +72,7 @@ export default class bookdetails extends Component {
                         <section className="wishList">
                             <label className="wishlistLabel">Book details</label>
                             <div className="photo">
-                                <img className="book" src={book.imageLinks.thumbnail} alt=""/>
+                                <img className="book" src={this.state.bookThumbnail} alt=""/>
                             </div>
                             <div className="add">
                                     <button>Add to wishlist</button>
