@@ -25,6 +25,7 @@ export default class wishlist extends Component {
   async componentDidMount(){ 
     firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
       if(user){
+        firebase.updateMatches();
         const wishList = await firebase.getWishlist();
         this.setState({
           isLoaded: true,

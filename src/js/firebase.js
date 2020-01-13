@@ -52,6 +52,7 @@ class Firebase {
           books: []
         },
         info: {
+          name: name,
           phoneNumber: number,
           country: country,
           age: age,
@@ -152,6 +153,30 @@ class Firebase {
     else return null;
   }
 
+  async getUsername(userID) {
+    const users = await this.getUsers();
+    let user = users.filter(user => user === userID); //If we have user in DB ..
+    if(user.length != 0)
+      user = user[0];
+    if(user)
+    {
+      let name;
+      await this.db
+      .collection("users")
+      .doc(user)
+      .get()
+      .then(function(doc) {
+        name = doc.data().info.name;
+      })
+      .catch(function(error) {
+        console.log("Error getting wishList:", error);
+      });
+
+      return name;
+    }
+    return null;
+  }
+
   getUserDoc() {
     return this.db.collection("users").doc(this.auth.currentUser.uid);
   }
@@ -175,14 +200,7 @@ class Firebase {
           );
       }
     }
-    // await this.db
-    // .collection("users")
-    // .doc(this.auth.currentUser.uid).update({
-    //     wishlist: {
-    //         books: app.firestore.FieldValue.arrayUnion(bookObject)
-    //     }
-    // });
-    this.updateMatches();
+    await this.updateMatches();
   }
 
   async addToOwnedlist(bookObject) {
@@ -204,7 +222,7 @@ class Firebase {
           );
       }
     }
-    this.updateMatches();
+    await this.updateMatches();
   }
 
   async findUserMatches() {
@@ -222,16 +240,18 @@ class Firebase {
         const matchedOwnedBook = userOwnedList.find(
           uOBook => uOBook.id === wBook.id
         );
-        if (matchedOwnedBook) {
+        if (matchedOwnedBook) { //If user has a book we want
           let matchedWishlistBook;
-          userWishList.forEach(uWBook => {
+          userWishList.forEach(async uWBook => {
             matchedWishlistBook = ownedlist.find(
               oBook => oBook.id === uWBook.id
             );
-            if (matchedWishlistBook) {
+            if (matchedWishlistBook) { //If we have a book the user wants
+              const userName = await this.getUsername(user);
               matches.push({
                 full: true,
                 userID: user,
+                userName: userName,
                 yourBook: matchedWishlistBook,
                 hisBook: matchedOwnedBook
               });
@@ -245,15 +265,17 @@ class Firebase {
       //Get full match = true
       //else incomplete match = true
     });
+    console.log(matches);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(matches);
-      }, 1000);
+      }, 2000);
     });
   }
 
   async updateMatches() {
     let updatedMatches = await this.findUserMatches();
+    console.log("UPDATED MATCHES: ", updatedMatches);
     await this.db
       .collection("users")
       .doc(this.auth.currentUser.uid)

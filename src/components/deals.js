@@ -22,6 +22,7 @@ export default class deals extends Component {
     async componentDidMount(){
         firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
           if(user){
+            firebase.updateMatches();
             let matches = await firebase.getDeals();
             this.setState({
               isLoaded: true,
@@ -88,8 +89,8 @@ export default class deals extends Component {
                             <div className="suggestion">
                                 <div className="boxFriend"></div>
                                 <p>
-                                    <div className="user">{deal.userID}</div> has <div className="book2">Elton John "Me"</div> and wants to trade
-                                    <div className="book3">Charlotte Bronte "Jane Eyre".</div>
+                                    <div className="user">{deal.userName}</div> has <div className="book2">{deal.hisBook.volumeInfo.title}</div> and wants to trade 
+                                    <div className="book3">{deal.yourBook.volumeInfo.title}</div>
                                 </p>
                                 <div className="makeaDeal">
                                     <button>Make a deal</button>
