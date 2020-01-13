@@ -23,6 +23,7 @@ export default class ownedlist extends Component {
     async componentDidMount(){ 
         firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
           if(user){
+            firebase.updateMatches();
             const ownedlist = await firebase.getOwnedlist();
             this.setState({
               isLoaded: true,
