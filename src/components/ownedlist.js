@@ -17,13 +17,12 @@ export default class ownedlist extends Component {
           error: null,
           isLoaded: false,
           books: [],
-          observer: null,
         };
     }
     async componentDidMount(){ 
         firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
           if(user){
-            firebase.updateMatches();
+            //firebase.updateMatches();
             const ownedlist = await firebase.getOwnedlist();
             this.setState({
               isLoaded: true,
@@ -33,13 +32,13 @@ export default class ownedlist extends Component {
                   this.setState({
                       books: ownedlist, 
                   });
-                //   var domUL = document.getElementById("dropDownList");
-                //   var domInput = document.getElementById("addOwnedlist");
-                //   if(domUL && domInput){
-                //     domUL.classList.remove("dropDown");
-                //     domInput.classList.remove("borderUpdate");
-                //     domUL.innerHTML = "";
-                //   }
+                  var domUL = document.getElementById("dropDownList");
+                  var domInput = document.getElementById("addOwnedlist");
+                  if(domUL && domInput){
+                    domUL.classList.remove("dropDown");
+                    domInput.classList.remove("borderUpdate");
+                    domUL.innerHTML = "";
+                  }
               }, err => {console.log("Encountered error", err)}),
             });
         }

@@ -22,7 +22,7 @@ export default class deals extends Component {
     async componentDidMount(){
         firebase.auth.onAuthStateChanged(async(user) => { //Sito reikia, kad spetu initializuotis..
           if(user){
-            firebase.updateMatches();
+            await firebase.updateMatches();
             let matches = await firebase.getDeals();
             this.setState({
               isLoaded: true,

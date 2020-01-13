@@ -233,50 +233,54 @@ class Firebase {
     let users = await this.getUsers();
     let matches = [];
     users = users.filter(user => user != this.auth.currentUser.uid);
-    users.forEach(async user => {
-      let userOwnedList = await this.getOwnedlist(user);
-      let userWishList = await this.getWishlist(user);
-      wishlist.forEach(wBook => {
-        const matchedOwnedBook = userOwnedList.find(
-          uOBook => uOBook.id === wBook.id
-        );
-        if (matchedOwnedBook) { //If user has a book we want
-          let matchedWishlistBook;
-          userWishList.forEach(async uWBook => {
-            matchedWishlistBook = ownedlist.find(
-              oBook => oBook.id === uWBook.id
-            );
-            if (matchedWishlistBook) { //If we have a book the user wants
-              const userName = await this.getUsername(user);
-              matches.push({
-                full: true,
-                userID: user,
-                userName: userName,
-                yourBook: matchedWishlistBook,
-                hisBook: matchedOwnedBook
-              });
-            }
-          });
-        }
+    if(users){
+      users.forEach(async user => {
+        let userOwnedList = await this.getOwnedlist(user);
+        let userWishList = await this.getWishlist(user);
+        wishlist.forEach(wBook => {
+          const matchedOwnedBook = userOwnedList.find(
+            uOBook => uOBook.id === wBook.id
+          );
+          if (matchedOwnedBook) { //If user has a book we want
+            let matchedWishlistBook;
+            userWishList.forEach(async uWBook => {
+              matchedWishlistBook = ownedlist.find(
+                oBook => oBook.id === uWBook.id
+              );
+              if (matchedWishlistBook) { //If we have a book the user wants
+                const userName = await this.getUsername(user);
+                matches.push({
+                  full: true,
+                  userID: user,
+                  userName: userName,
+                  yourBook: matchedWishlistBook,
+                  hisBook: matchedOwnedBook
+                });
+              }
+            });
+          }
+        });
+        //First check if ownedList matches any of wishlist?
+        //Then check if wishsList of theirs matches your ownedList
+        //If your ownedList matches their wishlist and if your wishlist matches their owned list
+        //Get full match = true
+        //else incomplete match = true
       });
-      //First check if ownedList matches any of wishlist?
-      //Then check if wishsList of theirs matches your ownedList
-      //If your ownedList matches their wishlist and if your wishlist matches their owned list
-      //Get full match = true
-      //else incomplete match = true
-    });
+    }
+    
     console.log(matches);
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(matches);
-      }, 2000);
+      }, 1000);
     });
   }
 
   async updateMatches() {
     let updatedMatches = await this.findUserMatches();
-    console.log("UPDATED MATCHES: ", updatedMatches);
-    await this.db
+    console.log(this.auth.currentUser.uid);
+    if(updatedMatches){
+      await this.db
       .collection("users")
       .doc(this.auth.currentUser.uid)
       .set(
@@ -287,6 +291,7 @@ class Firebase {
         },
         { merge: true }
       );
+    }
   }
 
   async createChatRoom(roomID, uid2)
