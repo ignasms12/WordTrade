@@ -249,6 +249,7 @@ class Firebase {
               );
               if (matchedWishlistBook) { //If we have a book the user wants
                 const userName = await this.getUsername(user);
+                if(matchedWishlistBook)
                 matches.push({
                   full: true,
                   userID: user,
@@ -267,8 +268,7 @@ class Firebase {
         //else incomplete match = true
       });
     }
-    
-    console.log(matches);
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(matches);
@@ -280,6 +280,7 @@ class Firebase {
     let updatedMatches = await this.findUserMatches();
     console.log(this.auth.currentUser.uid);
     if(updatedMatches){
+      updatedMatches = updatedMatches.filter((v,i,a)=>a.findIndex(t=>(t.userID === v.userID && t.hisBook.id === v.hisBook.id && t.yourBook.id === v.yourBook.id))===i);
       await this.db
       .collection("users")
       .doc(this.auth.currentUser.uid)
