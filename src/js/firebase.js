@@ -272,7 +272,7 @@ class Firebase {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(matches);
-      }, 1000);
+      }, 9000);
     });
   }
 
@@ -281,6 +281,7 @@ class Firebase {
     console.log(this.auth.currentUser.uid);
     if(updatedMatches){
       updatedMatches = updatedMatches.filter((v,i,a)=>a.findIndex(t=>(t.userID === v.userID && t.hisBook.id === v.hisBook.id && t.yourBook.id === v.yourBook.id))===i);
+      console.log(updatedMatches);
       await this.db
       .collection("users")
       .doc(this.auth.currentUser.uid)
