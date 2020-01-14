@@ -80,6 +80,28 @@ class Firebase {
       });
   }
 
+  async editProfile(name, country){
+    const db = this.db, auth = this.auth;
+    await this.auth.currentUser.updateProfile({
+      displayName: name,
+    }).then(function() {
+      return db
+      .collection("users")
+      .doc(auth.currentUser.uid)
+      .set({
+        info: {
+          name: name,
+          country: country,
+        }
+      },
+      { merge: true }
+      );
+    }).catch(function(error) {
+      alert(error);
+    });
+  }
+  
+
   async resetPassword() {
     if(this.auth.currentUser){
       await this.auth

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
 import whitelist from '../images/whitelist.png';
@@ -8,10 +8,37 @@ import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settingsPng from '../images/settings-gears.svg';
 import malePng from '../images/male.png';
+import useFormValidation from '../js/useFormValidation';
+import validateEdit from "../js/validateEdit";
+import firebase from '../js/firebase.js';
 
 
-export default class editProfile extends Component {
-    render() {
+export default function EditProfile(props){
+
+    const INITIAL_STATE = {
+        country: "",
+        name: "",
+    }
+    const { 
+        handle,
+        handleChange,
+        handleBlur,
+        values,
+        errors,
+        serverError,
+        isSubmitting
+    } = useFormValidation(INITIAL_STATE, validateEdit);
+
+    const handleSubmit = async () => {
+        if(!errors.name && !errors.country)
+        {
+            await firebase.editProfile(values.name, values.country);
+        }
+        else
+            alert("Name or Country Code formatting is incorrect.");
+    }
+    if(props.user)
+    {
         return (
             <React.Fragment>
                 <body>
@@ -29,7 +56,7 @@ export default class editProfile extends Component {
                             <div class="imgcontainer">
                                 <img className="profilePhoto" src={malePng}/>
                             </div>
-                            <div className="nickname">{this.props.user.displayName}</div>
+                            <div className="nickname">{props.user.displayName}</div>
 
                             <div className="uploadPhoto">
                                 <input  className="choosePhoto" type="file" id="file" accept="image/*" />
@@ -37,17 +64,14 @@ export default class editProfile extends Component {
                             </div>
 
                             <div class = "inputcontainer field">
-                                <input type="text" placeholder="Country" name=""/>
+                                <input type="text" value={values.country} onChange={handleChange} onBlur={handleBlur} placeholder="Country Code" name="country"/>
                             </div>
                             <div class = "inputcontainer field">
-                                <input type="text" placeholder="Full name" name=""/>
-                            </div>
-                            <div class = "inputcontainer field">
-                                <input type="text" placeholder="Username" name=""/>
+                                <input type="text" value={values.name} onChange={handleChange} onBlur={handleBlur} placeholder="Full name" name="name"/>
                             </div>
                         </div>
                         <div className="submitChanges">
-                            <input  className="submit" type="submit" name="Submit"/>
+                            <input className="submit" type="submit" onClick={handleSubmit} name="Submit"/>
                         </div>
                 </section>
                 <footer>
@@ -61,4 +85,7 @@ export default class editProfile extends Component {
             </React.Fragment>
         )
     }
+    else
+        return(<Redirect to='/' />);
+    
 }

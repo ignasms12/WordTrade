@@ -21,7 +21,6 @@ class App extends React.Component {
       user: null,
     });
   }
-
   componentDidMount() {
     this.authListener();
   }
@@ -29,7 +28,12 @@ class App extends React.Component {
     firebase.getAuth().onAuthStateChanged((user) => {
       console.log(user);
       if (user) {
-        this.setState({ user });
+        this.setState({ user,  observer: firebase.getUserDoc().onSnapshot(async(snapshot) => {
+          const user = firebase.auth.currentUser;
+            this.setState({
+                user: user,
+            });
+        }, err => {console.log("Encountered error", err)})});
       } else {
         this.setState({ user: null });
       }
