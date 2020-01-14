@@ -35,7 +35,7 @@ app.post('/postreq', function (req, res) {
 
    chatkit.createUser({
       id: reqObj.uid,
-      name: 'Some Name',
+      name: reqObj.userName,
    })
   .then(() => {
     console.log('User created successfully');

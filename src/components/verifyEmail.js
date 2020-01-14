@@ -6,7 +6,12 @@ const verifyEmail = (props) => {
     console.log(props);
     if(props.user && !props.user.emailVerified){
         props.user.sendEmailVerification().then(function() {
-            // Email sent.
+            var req = new XMLHttpRequest();
+            req.open("POST", "http://localhost:4000/postreq", true);
+            req.setRequestHeader('Content-Type', 'application/json');
+            var jsondata = JSON.stringify({"uid": props.user.uid, "userName": props.user.displayName[0]});
+            req.send(jsondata);
+
             console.log("Sent");
         }).catch(function(error) {
             // An error happened.
