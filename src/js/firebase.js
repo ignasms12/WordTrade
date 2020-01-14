@@ -203,6 +203,38 @@ class Firebase {
     return this.db.collection("users").doc(this.auth.currentUser.uid);
   }
 
+  async removeFromWishlist(bookID) {
+    let wishlist = await this.getWishlist();
+    wishlist = wishlist.filter(book => book.id !== bookID); //Filtering out the book we don't need.
+        await this.db
+          .collection("users")
+          .doc(this.auth.currentUser.uid)
+          .update(
+            {
+              wishlist: {
+                books: wishlist
+              }
+            },
+          );
+    await this.updateMatches();
+  }
+
+  async removeFromOwnedlist(bookID) {
+    let ownedlist = await this.getOwnedlist();
+    ownedlist = ownedlist.filter(book => book.id !== bookID); //Filtering out the book we don't need.
+        await this.db
+          .collection("users")
+          .doc(this.auth.currentUser.uid)
+          .update(
+            {
+              ownedlist: {
+                books: ownedlist
+              }
+            },
+          );
+    await this.updateMatches();
+  }
+
   async addToWishlist(bookObject) {
     let wishlist = await this.getWishlist();
     if (!wishlist.some(obj => obj.id === bookObject.id)) {

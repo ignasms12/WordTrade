@@ -72,7 +72,7 @@ export default class wishlist extends Component {
             </header>
             <section className="Add Item">
               <div className="addContainer">
-                <img src={add}/>
+                <img src={add} alt=""/>
               </div>
               <input id="addWishlist" className="addItem" type="text" placeholder="Add Item" />
               <ul id="dropDownList"></ul>
