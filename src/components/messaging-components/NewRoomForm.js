@@ -1,25 +1,43 @@
-import React from 'react'
+import React from 'react';
+import firebase from '../../js/firebase';
+
+var myUserName = "tuscia";
 
 class NewRoomForm extends React.Component {
-    
+
+    componentDidMount() {
+        this.authListener(myUserName);
+    }
+    authListener = () => {
+        firebase.getAuth().onAuthStateChanged((user) => {
+            if (user) {
+                console.log("My username is ", user.displayName);
+                myUserName = user.displayName;
+            }
+        });
+    }
+
     constructor() {
-        super()
+        super();
+        // var otherUser = document.getElementById("dealUser");
+        // var otherUserId = otherUser.getAttribute("uid");
+        // var otherUserName = otherUser.innerHTML;
         this.state = {
             roomName: ''
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
-    handleChange(e) {
-        this.setState({
-            roomName: e.target.value
-        })
-    }
+    // handleChange(e) {
+    //     this.setState({
+    //         roomName: e.target.value
+    //     })
+    // }
     
     handleSubmit(e) {
-        e.preventDefault()
-        this.props.createRoom(this.state.roomName)
+        e.preventDefault();
+        this.props.createRoom(this.state.roomName);
         this.setState({roomName: ''})
     }
     
@@ -27,12 +45,12 @@ class NewRoomForm extends React.Component {
         return (
             <div className="new-room-form">
                 <form onSubmit={this.handleSubmit}>
-                    <input
+                    {/* <input
                         value={this.state.roomName}
                         onChange={this.handleChange}
                         type="text" 
                         placeholder="Create a room" 
-                        required />
+                        required /> */}
                     <button id="create-room-btn" type="submit">+</button>
             </form>
         </div>

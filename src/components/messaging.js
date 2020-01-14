@@ -37,19 +37,11 @@ class App extends React.Component {
                 uid = user.uid;
             };
 
-            let data = "stringeroo";
-
-            // fetch("http://localhost:4000/postreq", {
-            // method: "POST", 
-            // body: JSON.stringify(data)
-            // }).then(res => {
-            // console.log("Request complete! response:", res);
-            // });
-
             var req = new XMLHttpRequest();
             req.open("POST", "http://localhost:4000/postreq", true);
             req.setRequestHeader('Content-Type', 'application/json');
-            req.send(JSON.stringify({datas: "stringeruo"}))
+            req.send(JSON.stringify({"uid": uid}))
+            console.log("req is ", JSON.stringify({"useridas":uid}))
 
             const chatManager = new Chatkit.ChatManager({
                 instanceLocator : instanceLocator,
@@ -134,7 +126,7 @@ class App extends React.Component {
                     <SendMessageForm
                         disabled={!this.state.roomId}
                         sendMessage={this.sendMessage} />
-                    {/* <NewRoomForm createRoom={this.createRoom} /> */}
+                    <NewRoomForm createRoom={this.createRoom} />
                     <footer>
                         <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
                         <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg}/><span>OwnedList</span></div></Link>
