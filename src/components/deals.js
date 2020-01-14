@@ -61,14 +61,6 @@ export default class deals extends Component {
                         <header>                    
                             <h1 className="wordTrade">WordTrade</h1>
                         </header>
-
-                        {/* <section className="Add Item">
-                            <div className="addContainer">
-                                <img src={add} />
-                            </div>
-                            <input className="Search" type="text" placeholder="Search" />
-                        </section> */}
-
                         <div className="spacer"></div>
                         <section className="wishList">
                             <label className="wishlistLabel">Deals</label>

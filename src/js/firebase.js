@@ -272,7 +272,7 @@ class Firebase {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(matches);
-      }, 9000);
+      }, 1500);
     });
   }
 
