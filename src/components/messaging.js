@@ -41,12 +41,6 @@ class App extends React.Component {
                 uDisplayName = user.displayName.split(" ");
             };
 
-            var req = new XMLHttpRequest();
-            req.open("POST", "http://localhost:4000/postreq", true);
-            req.setRequestHeader('Content-Type', 'application/json');
-            req.send(JSON.stringify({"uid": uid}))
-            console.log("req is ", JSON.stringify({"useridas":uid}))
-
             const chatManager = new Chatkit.ChatManager({
                 instanceLocator : instanceLocator,
                 userId: uid,
@@ -61,6 +55,7 @@ class App extends React.Component {
                 this.getRooms();
                 var userIdQuery = window.location.search;
                 if(userIdQuery){
+                    console.log("We goin")
                     otherUserID = userIdQuery.substring(5, 33);
                     var otherDisplayName = userIdQuery.substring(37).split("%20");
                     // kito : otherUserID, otherDisplayName
@@ -104,8 +99,9 @@ class App extends React.Component {
                 roomId: room.id
             })
             this.getRooms();
-
-            this.addOtherPersonToRoom(roomId);
+            if(window.location.search){
+                this.addOtherPersonToRoom(roomId);
+            }
         })
         .catch(err => console.log('error on subscribing to room: ', err))
     }
