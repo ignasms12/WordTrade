@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import '../stylesheets/main.css';
 import '../fonts/fonts.css';
@@ -22,13 +22,13 @@ export default function EditEmail(props){
         emailRpt: "",
     }
     const { 
-        handle,
+        //handle,
         handleChange,
         handleBlur,
         values,
-        errors,
-        serverError,
-        isSubmitting
+        //errors,
+        //serverError,
+        //isSubmitting
     } = useFormValidation(INITIAL_STATE, validateAuth);
 
     const handleSubmit = async () => {
@@ -55,7 +55,7 @@ export default function EditEmail(props){
                         <label className="wishlistLabel">Change Email</label>
                         <div className="myprofile">
                             <div className="imgcontainer">
-                                <img className="profilePhoto" src={malePng}/>
+                                <img className="profilePhoto" src={malePng} alt=""/>
                             </div>
                             <div className="nickname">{props.user.displayName}</div>
                             <div className = "inputcontainer field">
@@ -71,11 +71,11 @@ export default function EditEmail(props){
                     
                     </section>
                     <footer>
-                        <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
-                        <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg}/><span>OwnedList</span></div></Link>
-                        <Link to = "/deals"><div id="deals" className="navbar-element"><img src={handshake}/><span>Deals</span></div></Link>
-                        <Link to = "/messaging"><div id="messaging" className="navbar-element"><img src={whitechat}/><span>Messaging</span></div></Link>
-                        <Link to = "/settings"><div id="settings" className="navbar-element"><img src={settingsPng}/><span>Settings</span></div></Link>
+                        <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist} alt=""/><span>WishList</span></div></Link>
+                        <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg} alt=""/><span>OwnedList</span></div></Link>
+                        <Link to = "/deals"><div id="deals" className="navbar-element"><img src={handshake} alt=""/><span>Deals</span></div></Link>
+                        <Link to = "/messaging"><div id="messaging" className="navbar-element"><img src={whitechat} alt=""/><span>Messaging</span></div></Link>
+                        <Link to = "/settings"><div id="settings" className="navbar-element"><img src={settingsPng} alt=""/><span>Settings</span></div></Link>
                     </footer>
                 </body>
             </React.Fragment>

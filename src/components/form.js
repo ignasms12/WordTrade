@@ -30,11 +30,11 @@ function Form(props){
         handleChange,
         handleBlur,
         values,
-        errors,
-        serverError,
-        isSubmitting
+        //errors,
+        //serverError,
+        //isSubmitting
     } = useFormValidation(INITIAL_STATE, validateAuth);
-
+    
 	return (    //@TODO IMPLEMENT ERROR DISPLAY IN UI
         <React.Fragment>
             <div className="logo centerHorizontally"></div>

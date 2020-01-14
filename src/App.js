@@ -10,7 +10,7 @@ import EditProfile from './components/editProfile';
 import EditEmail from './components/editEmail';
 import EditPassword from './components/editPassword';
 import firebase from './js/firebase';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './components/home';
 import VerifyEmail from './components/verifyEmail';
 

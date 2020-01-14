@@ -1,8 +1,8 @@
 import React from 'react';
-import firebase from '../../js/firebase';
-import messaging from '../messaging';
+//import firebase from '../../js/firebase';
+//import messaging from '../messaging';
 
-var myUserName = "tuscia";
+//var myUserName = "tuscia"; (Surpressing warnings)
 
 class NewRoomForm extends React.Component {
 

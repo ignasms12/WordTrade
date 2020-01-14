@@ -162,7 +162,6 @@ class Firebase {
   }
 
   async getUsers() {
-    let userList;
     const snapshot = await this.db.collection("users").get();
     const documents = [];
     snapshot.forEach(doc => documents.push(doc.id));
@@ -170,15 +169,15 @@ class Firebase {
     return documents;
   }
 
-  getUsername() {
-    if (this.auth.currentUser) return this.auth.currentUser.displayName;
-    else return null;
-  }
+  // getUsername() {
+  //   if (this.auth.currentUser) return this.auth.currentUser.displayName;
+  //   else return null;
+  // }
 
   async getUsername(userID) {
     const users = await this.getUsers();
     let user = users.filter(user => user === userID); //If we have user in DB ..
-    if(user.length != 0)
+    if(user.length !== 0)
       user = user[0];
     if(user)
     {
@@ -286,7 +285,7 @@ class Firebase {
     //Get all other user UID's
     let users = await this.getUsers();
     let matches = [];
-    users = users.filter(user => user != this.auth.currentUser.uid);
+    users = users.filter(user => user !== this.auth.currentUser.uid);
     if(users){
       users.forEach(async user => {
         let userOwnedList = await this.getOwnedlist(user);

@@ -31,7 +31,7 @@ export default class editPassword extends Component {
 
               <div className="myprofile">
                 <div class="imgcontainer">
-                  <img className="profilePhoto" src={malePng} />
+                  <img className="profilePhoto" src={malePng} alt=""/>
                 </div>
                 <div className="nickname">{this.props.user.displayName}</div>
 
@@ -48,31 +48,31 @@ export default class editPassword extends Component {
             <footer>
               <Link to="/wishlist">
                 <div id="wishlist" className="navbar-element">
-                  <img src={whitelist} />
+                  <img src={whitelist} alt=""/>
                   <span>WishList</span>
                 </div>
               </Link>
               <Link to="/ownedlist">
                 <div id="ownedlist" className="navbar-element">
-                  <img src={wishlistImg} />
+                  <img src={wishlistImg} alt=""/>
                   <span>OwnedList</span>
                 </div>
               </Link>
               <Link to="/deals">
                 <div id="deals" className="navbar-element">
-                  <img src={handshake} />
+                  <img src={handshake} alt=""/>
                   <span>Deals</span>
                 </div>
               </Link>
               <Link to="/messaging">
                 <div id="messaging" className="navbar-element">
-                  <img src={whitechat} />
+                  <img src={whitechat} alt=""/>
                   <span>Messaging</span>
                 </div>
               </Link>
               <Link to="/settings">
                 <div id="settings" className="navbar-element">
-                  <img src={settingsPng} />
+                  <img src={settingsPng} alt=""/>
                   <span>Settings</span>
                 </div>
               </Link>
