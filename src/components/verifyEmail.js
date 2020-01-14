@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-//@TODO Style the page
 
 const verifyEmail = (props) => {
     console.log(props);
@@ -14,9 +14,22 @@ const verifyEmail = (props) => {
         });
     }
     return (
-        <div>
-            You are not verified
-        </div>
+        <React.Fragment>
+                    <body>
+                        <header>                    
+                            <h1 className="wordTrade">WordTrade</h1>
+                        </header>
+                        <div className="spacer"></div>
+                        <section className="wishList">
+                            <label className="wishlistLabel">Deals</label>
+                            <h1 className="noDeals">
+                                <span class="sorry">Verification email has been sent,</span>
+                                 please verify your email, then continue.
+                            </h1>
+                        </section>
+                            <Link to = "/wishlist"><span class="continue">Continue</span></Link>
+                    </body>
+                </React.Fragment>
     )
 }
 

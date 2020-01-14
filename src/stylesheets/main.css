@@ -517,6 +517,22 @@ header .top {
   color: white;
 }
 
+.sorry {
+  font-size: 100px;
+  display: block;
+}
+
+.continue {
+  color: white;
+  padding: 8px;
+  font-size: 26px;
+  border: 1px solid white;
+  border-radius: 25px;
+  width: 75px;
+  margin-left: calc(50% - 75px);
+
+}
+
 .aboutBook p {
   display: inline-block;
   font-size: 17px;

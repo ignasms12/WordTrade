@@ -37,7 +37,7 @@ export default class deals extends Component {
         return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
         return <div>Loading...</div>;
-        } else if (!dealsai) {
+        } else if (!dealsai.length) {
             return (
                 <React.Fragment>
                     <body>
@@ -55,8 +55,10 @@ export default class deals extends Component {
                         <div className="spacer"></div>
                         <section className="wishList">
                             <label className="wishlistLabel">Deals</label>
-                            <h1 className="noDeals">Sorry, we couldn't find any deals for you at the moment. :(</h1>
-                        
+                            <h1 className="noDeals">
+                                <span class="sorry">Sorry,</span>
+                                 we couldn't find any deals for you at the moment. :(
+                            </h1>
                         </section>
                         <footer>
                             <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
