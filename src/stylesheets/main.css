@@ -3,7 +3,8 @@ body {
   font-family: "Proxima Nova", Georgia, sans-serif !important;
   width: 100%;
   height: 100vh;
-  background: #31315c;
+  /*31315c*/
+  background: #3e3d3d;
   overflow: auto;
 }
 
@@ -700,6 +701,16 @@ header .top {
 .emailChanges,
 .passChanges {
   margin-top: 30px;
+}
+
+.loadingContainer {
+  position: absolute;
+  left: calc(50% - 200px);
+  top: calc(50% - 200px);
+}
+
+.loadingContainer img {
+  width: 400px;
 }
 
 @media screen and (max-width:350px) {
