@@ -104,7 +104,7 @@ export default class deals extends Component {
                                     <div className="book3">{deal.yourBook.volumeInfo.title}</div>
                                 </p>
                                 <div className="makeaDeal">
-                                    <button>Make a deal</button>
+                                    <Link to = {"messaging?uid=" + deal.userID + "&dn=" + deal.userName}><button>Make a Deal</button></Link>
                                 </div>
                             </div>
                             ))}

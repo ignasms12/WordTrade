@@ -14,6 +14,8 @@ import firebase from '../js/firebase.js';
 
 import { tokenUrl, instanceLocator } from './config'
 
+var otherUserID;
+
 class App extends React.Component {
     
     constructor() {
@@ -31,10 +33,12 @@ class App extends React.Component {
     } 
     
     componentDidMount() {
-        var uid;
+        
+        var uid, uDisplayName;
         firebase.auth.onAuthStateChanged(async(user) => {
             if(user){
                 uid = user.uid;
+                uDisplayName = user.displayName.split(" ");
             };
 
             var req = new XMLHttpRequest();
@@ -53,8 +57,17 @@ class App extends React.Component {
             
             chatManager.connect()
             .then(currentUser => {
-                this.currentUser = currentUser
-                this.getRooms()
+                this.currentUser = currentUser;
+                this.getRooms();
+                var userIdQuery = window.location.search;
+                if(userIdQuery){
+                    otherUserID = userIdQuery.substring(5, 33);
+                    var otherDisplayName = userIdQuery.substring(37).split("%20");
+                    // kito : otherUserID, otherDisplayName
+                    // mano : uid, uDisplayName
+
+                    this.createRoom(uDisplayName[0] + " ir " + otherDisplayName[0]);
+                }
             })
             .catch(err => console.log('error on connecting: ', err))
         });
@@ -90,7 +103,9 @@ class App extends React.Component {
             this.setState({
                 roomId: room.id
             })
-            this.getRooms()
+            this.getRooms();
+
+            this.addOtherPersonToRoom(roomId);
         })
         .catch(err => console.log('error on subscribing to room: ', err))
     }
@@ -103,13 +118,36 @@ class App extends React.Component {
     }
     
     createRoom(name) {
+        console.log(this.currentUser);
         this.currentUser.createRoom({
             name
         })
         .then(room => {
-            this.subscribeToRoom(room.id)
+            this.subscribeToRoom(room.id);
         })
-        .catch(err => console.log('error with createRoom: ', err))
+        .catch(err => console.log('error with createRoom: ', err));
+    }
+
+    addOtherPersonToRoom(roomId) {
+
+        const chatManager2 = new Chatkit.ChatManager({
+            instanceLocator : instanceLocator,
+            userId: otherUserID,
+            tokenProvider: new Chatkit.TokenProvider({
+                url: tokenUrl
+            })
+        })
+        
+        chatManager2.connect()
+        .then(otherUser => {
+            this.currentUser = otherUser;
+            console.log("this is other user");
+            console.log(otherUser);
+            this.currentUser.subscribeToRoomMultipart({
+                roomId: roomId
+            })
+        })
+        .catch(err => console.log('error on connecting: ', err))
     }
     
     render() {

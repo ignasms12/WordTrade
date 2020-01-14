@@ -1,21 +1,10 @@
 import React from 'react';
 import firebase from '../../js/firebase';
+import messaging from '../messaging';
 
 var myUserName = "tuscia";
 
 class NewRoomForm extends React.Component {
-
-    componentDidMount() {
-        this.authListener(myUserName);
-    }
-    authListener = () => {
-        firebase.getAuth().onAuthStateChanged((user) => {
-            if (user) {
-                console.log("My username is ", user.displayName);
-                myUserName = user.displayName;
-            }
-        });
-    }
 
     constructor() {
         super();
