@@ -7,6 +7,7 @@ import wishlistImg from '../images/wishlist.svg';
 import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
+import loading from '../images/loading.gif';
 import add from '../images/ad.svg';
 import firebase from '../js/firebase.js';
 
@@ -36,8 +37,17 @@ export default class deals extends Component {
         if (error) {
         return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-        return <div>Loading...</div>;
+            return(
+                <React.Fragment>
+                    <body>
+                        <div className="loadingContainer">
+                            <img src={loading}/>
+                        </div>
+                    </body>
+                </React.Fragment>
+            )
         } else if (!dealsai.length) {
+            console.log("Deals are(not)", dealsai)
             return (
                 <React.Fragment>
                     <body>
@@ -91,7 +101,7 @@ export default class deals extends Component {
                             <div className="suggestion">
                                 <div className="boxFriend"></div>
                                 <p>
-                                    <div className="user">{deal.userName}</div> has <div className="book2">{deal.hisBook.volumeInfo.title}</div> and wants to trade 
+                                    <div id="dealUser" className="user" uid={deal.uid}>{deal.userName}</div> has <div className="book2">{deal.hisBook.volumeInfo.title}</div> and wants to trade 
                                     <div className="book3">{deal.yourBook.volumeInfo.title}</div>
                                 </p>
                                 <div className="makeaDeal">

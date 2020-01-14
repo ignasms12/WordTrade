@@ -126,7 +126,7 @@ class App extends React.Component {
                     <SendMessageForm
                         disabled={!this.state.roomId}
                         sendMessage={this.sendMessage} />
-                    {/* <NewRoomForm createRoom={this.createRoom} /> */}
+                    <NewRoomForm createRoom={this.createRoom} />
                     <footer>
                         <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist}/><span>WishList</span></div></Link>
                         <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg}/><span>OwnedList</span></div></Link>
