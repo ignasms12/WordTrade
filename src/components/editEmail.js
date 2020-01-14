@@ -82,6 +82,6 @@ export default function EditEmail(props){
         )
     }
     else
-        return(<Redirect to='/' />)
+        return(<Redirect to='/' />);
 
 }
