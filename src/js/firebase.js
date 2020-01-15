@@ -290,6 +290,7 @@ class Firebase {
       users.forEach(async user => {
         let userOwnedList = await this.getOwnedlist(user);
         let userWishList = await this.getWishlist(user);
+        console.log("User ", await this.getUsername(user), userWishList, userOwnedList);
         wishlist.forEach(wBook => {
           const matchedOwnedBook = userOwnedList.find(
             uOBook => uOBook.id === wBook.id
@@ -301,8 +302,8 @@ class Firebase {
                 oBook => oBook.id === uWBook.id
               );
               if (matchedWishlistBook) { //If we have a book the user wants
+                console.log("Matched Wishlist Book", matchedOwnedBook, matchedWishlistBook, user);
                 const userName = await this.getUsername(user);
-                if(matchedWishlistBook)
                 matches.push({
                   full: true,
                   userID: user,
@@ -329,12 +330,61 @@ class Firebase {
     });
   }
 
+  async findUserMatches() {
+    let ownedlist = await this.getOwnedlist();
+    let wishlist = await this.getWishlist();
+    //Get wishlists of OTHER users
+    //Get all other user UID's
+    let users = await this.getUsers();
+    let matches = [];
+    users = users.filter(user => user !== this.auth.currentUser.uid);
+    if(users){
+      for(let user of users)
+      {
+        let userOwnedList = await this.getOwnedlist(user);
+        let userWishList = await this.getWishlist(user);
+        for(let wBook of wishlist)
+        {
+          const matchedOwnedBook = userOwnedList.find(
+            uOBook => uOBook.id === wBook.id
+          );
+          if(matchedOwnedBook) {
+            let matchedWishlistBook;
+            for(let uWBook of userWishList)
+            {
+              matchedWishlistBook = ownedlist.find(
+                oBook => oBook.id === uWBook.id
+              );
+              if (matchedWishlistBook) {
+                const userName = await this.getUsername(user);
+                matches.push({
+                  full: true,
+                  userID: user,
+                  userName: userName,
+                  yourBook: matchedWishlistBook,
+                  hisBook: matchedOwnedBook
+                });
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(matches);
+      }, 1500);
+    });
+  }
+
   async updateMatches() {
     let updatedMatches = await this.findUserMatches();
-    console.log(this.auth.currentUser.uid);
     if(updatedMatches){
+      console.log("Before", updatedMatches)
       updatedMatches = updatedMatches.filter((v,i,a)=>a.findIndex(t=>(t.userID === v.userID && t.hisBook.id === v.hisBook.id && t.yourBook.id === v.yourBook.id))===i);
-      console.log(updatedMatches);
+      console.log("After", updatedMatches);
       await this.db
       .collection("users")
       .doc(this.auth.currentUser.uid)
