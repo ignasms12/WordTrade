@@ -265,16 +265,16 @@ footer {
 
 .message .message-username {
   font-size: 11px;
-  color: #11d7d8;
+  color: rgba(255, 255, 255, 0.8);
   opacity: 0.9;
   margin-bottom: 6px;
 }
 .message .message-text {
-  background: #fd9ab6;
+  background: rgba(255, 255, 255, 0.2);
   color: #fff4e6;
   display: inline;
-  padding: 4px 8px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
 }
 
 .message-list {

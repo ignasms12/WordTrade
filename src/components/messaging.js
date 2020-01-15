@@ -14,7 +14,8 @@ import firebase from '../js/firebase.js';
 
 import { tokenUrl, instanceLocator } from './config'
 
-var otherUserID;
+var otherUserID, uid;
+var alreadySubscribed = false;
 
 class App extends React.Component {
     
@@ -34,7 +35,7 @@ class App extends React.Component {
     
     componentDidMount() {
         
-        var uid, uDisplayName;
+        var uDisplayName;
         firebase.auth.onAuthStateChanged(async(user) => {
             if(user){
                 uid = user.uid;
@@ -61,7 +62,7 @@ class App extends React.Component {
                     // kito : otherUserID, otherDisplayName
                     // mano : uid, uDisplayName
 
-                    this.createRoom(uDisplayName[0] + " ir " + otherDisplayName[0]);
+                    this.createRoom(uDisplayName[0] + " and " + otherDisplayName[0]);
                 }
             })
             .catch(err => console.log('error on connecting: ', err))
@@ -82,39 +83,57 @@ class App extends React.Component {
     }
     
     subscribeToRoom(roomId) {
-        this.setState({ messages: [] })
-        this.currentUser.subscribeToRoomMultipart({
-            roomId: roomId,
-            hooks: {
-                onMessage: message => {
-                    this.setState({
-                        messages: [...this.state.messages, message]
-                    })
+        if(!alreadySubscribed){
+            this.setState({ messages: [] })
+            this.currentUser.subscribeToRoomMultipart({
+                roomId: roomId,
+                hooks: {
+                    onMessage: message => {
+                        this.setState({
+                            messages: [...this.state.messages, message]
+                        })
+                    }
+                    
                 }
-                
-            }
-        })
-        .then(room => {
-            this.setState({
-                roomId: room.id
             })
-            this.getRooms();
-            if(window.location.search){
-                this.addOtherPersonToRoom(roomId);
-            }
-        })
-        .catch(err => console.log('error on subscribing to room: ', err))
+            .then(room => {
+                this.setState({
+                    roomId: room.id
+                })
+                this.getRooms();
+                if(window.location.search){
+                    this.addOtherPersonToRoom(roomId);
+                }
+            })
+            .catch(err => console.log('error on subscribing to room: ', err))
+        }
     }
     
     sendMessage(text) {
-        this.currentUser.sendMessage({
-            text,
-            roomId: this.state.roomId
-        })
+        if(this.currentUser.id == uid){
+            this.currentUser.sendMessage({
+                text,
+                roomId: this.state.roomId
+            })
+        } else {
+            const chatManager = new Chatkit.ChatManager({
+                instanceLocator : instanceLocator,
+                userId: uid,
+                tokenProvider: new Chatkit.TokenProvider({
+                    url: tokenUrl
+                })
+            })
+
+            chatManager.connect()
+            .then(currentUser => {
+                this.currentUser = currentUser;
+                this.sendMessage(text);
+            })
+            .catch(err => console.log('error on relogging: ', err))
+        }
     }
     
     createRoom(name) {
-        console.log(this.currentUser);
         this.currentUser.createRoom({
             name
         })
@@ -142,6 +161,7 @@ class App extends React.Component {
             this.currentUser.subscribeToRoomMultipart({
                 roomId: roomId
             })
+            alreadySubscribed = true;
         })
         .catch(err => console.log('error on connecting: ', err))
     }
@@ -160,7 +180,7 @@ class App extends React.Component {
                     <SendMessageForm
                         disabled={!this.state.roomId}
                         sendMessage={this.sendMessage} />
-                    <NewRoomForm createRoom={this.createRoom} />
+                    {/* <NewRoomForm createRoom={this.createRoom} /> */}
                     <footer>
                         <Link to = "/wishlist"><div id="wishlist" className="navbar-element"><img src={whitelist} alt=""/><span>WishList</span></div></Link>
                         <Link to = "/ownedlist"><div id="ownedlist" className="navbar-element"><img src={wishlistImg} alt=""/><span>OwnedList</span></div></Link>
