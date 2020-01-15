@@ -470,7 +470,7 @@ header .top {
 
 
 .profilePhoto {
-  background-image: url("../images/male.png");
+  /* background-image: url("../images/male.png"); */
   background-size: 50px;
   background-repeat: no-repeat;
   background-color: transparent;

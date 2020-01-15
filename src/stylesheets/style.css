@@ -164,7 +164,7 @@ body {
   height: 100px;
   width: 100px;
   border-radius: 50px;
-  background: url("../images/photo.jpg");
+  /* background: url("../images/photo.jpg"); */
   background-size: cover;
 }
 
