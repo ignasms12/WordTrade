@@ -4,8 +4,8 @@ function Message(props) {
     if(props.id == props.userId){
         return (
             <div className="message message-self">
-                <div className="message-text message-self-bg">
-                    <div className="message-username message-self-title">{props.username}</div>{props.text}
+                <div className="message-text message-self-inline-block">
+                    <div className="message-username message-self-title">{props.username}</div><p className="message-self-bg">{props.text}</p>
                 </div>
             </div>
         )
@@ -13,7 +13,7 @@ function Message(props) {
         return (
             <div className="message">
                 <div className="message-text">
-                    <div className="message-username">{props.username}</div>{props.text}
+                    <div className="message-username">{props.username}</div><p>{props.text}</p>
                 </div>
             </div>
         )

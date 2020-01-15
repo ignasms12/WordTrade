@@ -2,7 +2,7 @@ import React from 'react';
 import '../stylesheets/style.css';
 import '../stylesheets/bootstrap.css';
 import '../fonts/fonts.css';
-import loginVideo from '../images/login.mp4';
+import loginVideo from '../images/slowfront.mov';
 import '../js/loginLogic';
 import useFormValidation from '../js/useFormValidation';
 import validateAuth from "../js/validateAuth";

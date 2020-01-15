@@ -58,7 +58,7 @@ class App extends React.Component {
              <Route exact path='/editEmail' render={(props) => <EditEmail {...props} user={firebase.auth.currentUser} />} />
              <Route exact path='/editPassword' render={(props) => <EditPassword {...props} user={firebase.auth.currentUser} />} />
            </Switch>
-           {this.state.user ? (this.state.user.emailVerified ?  (window.location.pathname === "/" ? <Redirect to='/wishlist'/> : console.log()) : <Redirect to='/verifyEmail' />) : <Redirect to='/' /> }
+           {/* {this.state.user ? (this.state.user.emailVerified ?  (window.location.pathname === "/" ? <Redirect to='/wishlist'/> : console.log()) : <Redirect to='/verifyEmail' />) : <Redirect to='/' /> } */}
        </div>
      </Router>
     )

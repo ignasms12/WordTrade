@@ -138,7 +138,11 @@ class App extends React.Component {
     createRoom(name) {
         var roomAlreadyExists = false;
         for(var i = 0; i < this.currentUser.rooms.length; i++){
-            if(this.currentUser.rooms[i].id == name){
+            var currentRoomUsers = this.currentUser.rooms[i].id.split(" and ");
+            var newRoomUsers = name.split(" and ");
+            if(((currentRoomUsers[0] == newRoomUsers[0]) && (currentRoomUsers[1] == newRoomUsers[1]))
+            || ((currentRoomUsers[0] == newRoomUsers[1]) && (currentRoomUsers[1] == newRoomUsers[0]))
+            ){
                 roomAlreadyExists = true;
             }
         }
