@@ -8,9 +8,6 @@ class NewRoomForm extends React.Component {
 
     constructor() {
         super();
-        // var otherUser = document.getElementById("dealUser");
-        // var otherUserId = otherUser.getAttribute("uid");
-        // var otherUserName = otherUser.innerHTML;
         this.state = {
             roomName: ''
         }

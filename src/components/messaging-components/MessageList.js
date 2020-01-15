@@ -28,6 +28,8 @@ class MessageList extends React.Component {
                     return (
                         <Message 
                         key={message.id} 
+                        id={message.senderId}
+                        userId={this.props.userId}
                         username={message.userStore.users[message.senderId].name} 
                         text={message.parts[0].payload.content} />
                     )

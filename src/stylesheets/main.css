@@ -260,7 +260,8 @@ footer {
 }
 
 .message {
-  margin: 15px 0;
+  margin: 30px 0;
+  width: 100%;
 }
 
 .message .message-username {
@@ -268,6 +269,8 @@ footer {
   color: rgba(255, 255, 255, 0.8);
   opacity: 0.9;
   margin-bottom: 6px;
+  position: absolute;
+  top: -15px;
 }
 .message .message-text {
   background: rgba(255, 255, 255, 0.2);
@@ -275,13 +278,27 @@ footer {
   display: inline;
   padding: 8px 12px;
   border-radius: 12px;
+  position: relative;
+}
+
+.message-self{
+  text-align: right;
+}
+
+.message-self-bg{
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.message-self-title{
+  display: none;
 }
 
 .message-list {
   box-sizing: border-box;
   padding-left: 15px;
+  padding-right: 15px;
   float: left;
-  width: 45%;
+  width: 55%;
   height: 100%;
 }
 
