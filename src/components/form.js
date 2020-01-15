@@ -56,8 +56,8 @@ function Form(props){
                                 placeholder="Password" required/>
                             </div>
                             <div id="name-form" className="form-group display-none left">
-                                <label className="labelis" htmlFor="name">Name</label>
-                                <input id="name" type="text" name="name" value={values.name} onChange={handleChange} onBlur={handleBlur} className="form-control txt-block" placeholder="Your name" required="@"/>
+                                <label className="labelis" htmlFor="name">Full Name</label>
+                                <input id="name" type="text" name="name" value={values.name} onChange={handleChange} onBlur={handleBlur} className="form-control txt-block" placeholder="Your full name"/>
                             </div>
                             <div id="psw-repeat-form" className="form-group display-none right">
                                 <label className="labelis" htmlFor="password">Repeat</label>
