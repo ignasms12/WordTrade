@@ -168,16 +168,25 @@ footer {
 }
 
 .listItem {
+  position: relative;
   min-height: 50px;
   background: rgba(255, 255, 255, 0.2);
   margin: 10px 0;
   border-radius: 15px;
-  color: rgba(255, 255, 255, 0.8);
   text-align: left;
 }
 
 .listItem p {
   padding: 15px 15px 15px 30px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.minusContainer {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  width: 20px;
+  cursor: pointer;
 }
 
 .wishlistLabel {

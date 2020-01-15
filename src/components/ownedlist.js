@@ -8,6 +8,7 @@ import wishlistImg from '../images/wishlist.svg';
 import handshake from '../images/handshake.png';
 import whitechat from '../images/whitechat.png';
 import settings from '../images/settings-gears.svg';
+import minus from '../images/minus.svg';
 import firebase from '../js/firebase.js';
 
 export default class ownedlist extends Component {
@@ -40,6 +41,18 @@ export default class ownedlist extends Component {
                   }
               }, err => {console.log("Encountered error", err)}),
             });
+            var minuses = document.getElementsByClassName("minusContainer");
+            if(minuses){
+                for (var minus in minuses) {
+                    try {
+                        minuses[minus].onclick = function() {
+                            firebase.removeFromOwnedlist(this.getAttribute("bookId"));
+                        }
+                    } catch (error) {
+                        console.log("Error on adding event handlers", error);
+                    }
+                }
+            }
         }
     });
   }
@@ -67,11 +80,14 @@ export default class ownedlist extends Component {
                         <section className="wishList">
                             <label className="wishlistLabel">Your books</label>
                             {books.map(item => (
-                            <Link to={"bookdetails?id="+item.id}>
                                 <div className="listItem">
-                                <p>{item.volumeInfo.authors} {item.volumeInfo.title}</p>
+                                    <Link to={"bookdetails?id="+item.id}>
+                                        <p>{item.volumeInfo.authors} {item.volumeInfo.title}</p>
+                                    </Link>
+                                    <div bookId={item.id} className="minusContainer">
+                                        <img src={minus}/>
+                                    </div>
                                 </div>
-                            </Link>
                             ))}
                         </section>
                         <footer>
