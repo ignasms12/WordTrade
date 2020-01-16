@@ -9,6 +9,8 @@ document.addEventListener("keyup", function() {
     var domUL = document.getElementById("dropDownList");
     var input = domInput.value;
 
+    console.log("input is now ", input.length);
+
     if (input.length > 3) {
       fetch("https://www.googleapis.com/books/v1/volumes?q=" + input)
         .then(res => res.json())

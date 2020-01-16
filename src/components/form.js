@@ -2,7 +2,7 @@ import React from 'react';
 import '../stylesheets/style.css';
 import '../stylesheets/bootstrap.css';
 import '../fonts/fonts.css';
-import loginVideo from '../images/login.mp4';
+import loginVideo from '../images/slowfront.mp4';
 import '../js/loginLogic';
 import useFormValidation from '../js/useFormValidation';
 import validateAuth from "../js/validateAuth";
@@ -38,9 +38,11 @@ function Form(props){
 	return (    //@TODO IMPLEMENT ERROR DISPLAY IN UI
         <React.Fragment>
             <div className="logo centerHorizontally"></div>
-            <video autoPlay muted loop id="myVideo">
-                <source src={loginVideo} type="video/mp4"/>
-            </video>
+            <div className="videoContainer">
+                <video autoPlay muted loop id="myVideo">
+                    <source src={loginVideo} type="video/mp4"/>
+                </video>
+            </div>
             <div id="loginHome" className='home'>
                 <main>
                     <div className="container">

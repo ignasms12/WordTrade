@@ -83,6 +83,10 @@ export default class bookdetails extends Component {
                 </React.Fragment>
             )
         } else {
+            var description = "No description available for this book."
+            if(book.volumeInfo.description){
+                description = book.volumeInfo.description;
+            }
             return (
                 <React.Fragment>
                     <body>
@@ -96,17 +100,15 @@ export default class bookdetails extends Component {
                             <div className="photo">
                                 <img className="book" src={this.state.bookThumbnail} alt=""/>
                             </div>
-                            <div className="add">
-                                    <button onClick={this.handleClick}>Add to wishlist</button>
-                                    <button>Write to a seller</button>
-                            </div>
-                            <h1 className="bookTitle">{book.volumeInfo.title}</h1>
-                            <p className="authors">by {book.volumeInfo.authors}</p>           
-                            <div className="aboutBook"> 
-                                <h3>Description</h3>
-                                <p>
-                                    {book.volumeInfo.description}
-                                </p>   
+                            <div className="bookdetailsContainer">
+                                <h1 className="bookTitle">{book.volumeInfo.title}</h1>
+                                <p className="authors">by {book.volumeInfo.authors}</p>           
+                                <div className="aboutBook"> 
+                                    <h3>Description</h3>
+                                    <p>
+                                        {description}
+                                    </p>   
+                                </div>
                             </div>
                         </section>
                         <footer>

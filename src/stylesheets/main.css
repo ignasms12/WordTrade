@@ -80,7 +80,7 @@ input:focus {
   background: rgba(0, 0, 0, 0.3);
   height: 30px;
   color: rgba(255, 255, 255, 0.9);
-  text-indent: 20px;
+  text-indent: 10px;
 
 }
 
@@ -522,26 +522,6 @@ header .top {
   padding: 10px 5px 10px 5px;
 }
 
-.add {
-  display: inline-block;
-  margin: 2% 0% 2% 2%;
-
-}
-
-.add button {
-  font-size: 14px;
-  display: inline-block;
-  margin: 10px auto 0 10px;
-  width: calc(50% - 22px);
-  padding: 10px 6px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 15px;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  border: none;
-}
-
 .bookTitle {
   color: white;
   text-rendering: optimizeLegibility;
@@ -573,6 +553,11 @@ header .top {
 
 }
 
+.bookdetailsContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
 .aboutBook p {
   display: inline-block;
   font-size: 17px;
@@ -592,10 +577,6 @@ header .top {
 
 
 .photo {
-  margin-top: 10px;
-  display: inline-block;
-  height: 100%;
-  width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -938,11 +919,6 @@ header .top {
     height: 330px;
   }
 
-  .add button {
-    width: calc(100% - 22px);
-    margin: 5% auto 0 55%;
-  }
-
   .editProfile button,
   .mail button,
   .password button {
@@ -977,15 +953,6 @@ header .top {
     height: 350px;
   }
 
-  .add {
-    margin: 2% 0% 2% 20%;
-  }
-
-  .add button {
-    margin: 5% auto 0 60%;
-  }
-
-
   .editProfile button,
   .mail button,
   .password button {
@@ -1012,10 +979,6 @@ header .top {
     margin: 5% auto 2% 57%;
   }
 
-  .add button {
-    margin: 5% auto 0 70%;
-  }
-
   .editProfile button,
   .mail button,
   .password button {
@@ -1031,9 +994,6 @@ header .top {
 }
 
 @media screen and (min-width:1024px) {
-  .add button {
-    margin: 5% auto 0 80%;
-  }
 
   .profilePhoto2 {
     margin: 5% auto 2% 55%;
@@ -1099,7 +1059,6 @@ header .top {
 .suggestion .book3 {
   display: inline;
   font-style: italic;
-  text-decoration: underline;
   color: rgba(255, 255, 255, 0.8);
 }
 

@@ -99,8 +99,7 @@ export default class deals extends Component {
                             <div className="suggestion">
                                 <div className="boxFriend"></div>
                                 <p>
-                                    <div id="dealUser" className="user" uid={deal.uid}>{deal.userName}</div> has <div className="book2">{deal.hisBook.volumeInfo.title}</div> and wants to trade 
-                                    <div className="book3">{deal.yourBook.volumeInfo.title}</div>
+                                    <div id="dealUser" className="user" uid={deal.uid}>{deal.userName}</div> has <div className="book2">{deal.hisBook.volumeInfo.title}</div> and wants to trade <div className="book3">{deal.yourBook.volumeInfo.title}</div>
                                 </p>
                                 <div className="makeaDeal">
                                     <Link to = {"messaging?uid=" + deal.userID + "&dn=" + deal.userName}><button>Make a Deal</button></Link>

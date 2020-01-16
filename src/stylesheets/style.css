@@ -122,6 +122,14 @@ body {
   background-color: rgba(255, 255, 255, 0) !important;
 }
 
+.videoContainer {
+  min-width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
 .home {
   position: absolute !important;
   -webkit-transition: all 1s;
